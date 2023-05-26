@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(ltproto)
 
-option(GENERATE_LTPROTO OFF)
+option(GENERATE_LTPROTO ON)
 
 #option("PROTOC_PATH" "The path of protoc" "${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe")
 set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe)
@@ -28,6 +28,7 @@ function(lt_generate_protobuf_cpp SRCS HDRS)
 endfunction()
 
 set(LT_PROTOS
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_added_removed.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_response.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_status.proto
