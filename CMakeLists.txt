@@ -3,8 +3,9 @@ project(ltproto)
 
 option(GENERATE_LTPROTO ON)
 
-#option("PROTOC_PATH" "The path of protoc" "${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe")
-set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe)
+
+set(PROTOC_PATH protobuf::protoc)
+#set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe)
 
 
 function(lt_generate_protobuf_cpp SRCS HDRS)
