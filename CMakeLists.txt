@@ -81,7 +81,7 @@ if(GENERATE_LTPROTO)
     )
 endif()
 
-add_library(${PROJECT_NAME} SHARED
+add_library(${PROJECT_NAME} STATIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
     ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
     ${GENERATED_PROTO_CC}
@@ -89,8 +89,8 @@ add_library(${PROJECT_NAME} SHARED
 )
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC
-        protobuf::libprotobuf
+    PRIVATE
+        protobuf::libprotobuf-lite
 )
 
 target_include_directories(${PROJECT_NAME}
