@@ -98,3 +98,7 @@ target_include_directories(${PROJECT_NAME}
         ${CMAKE_CURRENT_BINARY_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+
+install(
+	TARGETS ${PROJECT_NAME}
+)
