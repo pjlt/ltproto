@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ltproto.peer2peer;
 
-message MouseClick
+message MouseEvent
 {
     enum KeyFlag
     {
@@ -17,5 +17,10 @@ message MouseClick
         X2Down = 8;
         X2Up = 9;
     }
-    KeyFlag key_falg = 1;
+    optional KeyFlag key_falg = 1;
+    optional float x = 2;
+    optional float y = 3;
+    optional int32 delta_x = 4;
+    optional int32 delta_y = 5;
+    optional int32 delta_z = 6;
 }

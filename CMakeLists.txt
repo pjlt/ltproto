@@ -35,9 +35,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_status.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keep_alive.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keyboard_event.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_click.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_motion.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_wheel.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_event.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_working.proto
@@ -78,6 +76,8 @@ if(GENERATE_LTPROTO)
             ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
         COMMAND
             python ${CMAKE_CURRENT_SOURCE_DIR}/gencpp.py
+        DEPENDS
+            ${CMAKE_CURRENT_SOURCE_DIR}/defines.json
     )
 endif()
 

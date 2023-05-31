@@ -23,13 +23,11 @@ namespace ltproto
         class StartWorkingAck;
         class StopWorking;
         class KeyboardEvent;
-        class MouseClick;
-        class MouseMotion;
-        class MouseWheel;
         class ControllerAddedRemoved;
         class ControllerStatus;
         class ControllerResponse;
         class CaptureVideoFrame;
+        class MouseEvent;
     }
     namespace server
     {
@@ -102,13 +100,11 @@ namespace ltproto
         constexpr uint32_t kStartWorkingAck = 22;
         constexpr uint32_t kStopWorking = 23;
         constexpr uint32_t kKeyboardEvent = 101;
-        constexpr uint32_t kMouseClick = 102;
-        constexpr uint32_t kMouseMotion = 103;
-        constexpr uint32_t kMouseWheel = 104;
         constexpr uint32_t kControllerAddedRemoved = 105;
         constexpr uint32_t kControllerStatus = 106;
         constexpr uint32_t kControllerResponse = 107;
         constexpr uint32_t kCaptureVideoFrame = 108;
+        constexpr uint32_t kMouseEvent = 109;
         constexpr uint32_t kLoginDevice = 1001;
         constexpr uint32_t kLoginDeviceAck = 1002;
         constexpr uint32_t kLoginUser = 1003;
@@ -142,13 +138,11 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<peer2peer::StartWorkingAck>&);
     uint32_t id(const std::shared_ptr<peer2peer::StopWorking>&);
     uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&);
-    uint32_t id(const std::shared_ptr<peer2peer::MouseClick>&);
-    uint32_t id(const std::shared_ptr<peer2peer::MouseMotion>&);
-    uint32_t id(const std::shared_ptr<peer2peer::MouseWheel>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerAddedRemoved>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerStatus>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerResponse>&);
     uint32_t id(const std::shared_ptr<peer2peer::CaptureVideoFrame>&);
+    uint32_t id(const std::shared_ptr<peer2peer::MouseEvent>&);
     uint32_t id(const std::shared_ptr<server::LoginDevice>&);
     uint32_t id(const std::shared_ptr<server::LoginDeviceAck>&);
     uint32_t id(const std::shared_ptr<server::LoginUser>&);
