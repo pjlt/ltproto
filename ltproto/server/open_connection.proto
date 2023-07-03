@@ -19,4 +19,5 @@ message OpenConnection
     optional ltproto.peer2peer.StreamingParams streaming_params = 7;
     string p2p_username = 8;
     string p2p_password = 9;
+    string access_token = 10;
 }
