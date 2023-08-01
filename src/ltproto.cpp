@@ -253,7 +253,7 @@ std::optional<Packet> Packet::create(const Message& payload, bool need_xor)
     pkt.header.magic = kMagicV1;
     pkt.header.xor_key = 0;
     pkt.header.checksum = 0;
-    pkt.header.payload_size = payload.msg->ByteSizeLong() + 4;
+    pkt.header.payload_size = static_cast<uint32_t>(payload.msg->ByteSizeLong()) + 4;
     pkt.payload = std::shared_ptr<uint8_t>(new uint8_t[pkt.header.payload_size]);
     *(uint32_t*)pkt.payload.get() = payload.type;
     if (payload.msg->SerializeToArray(pkt.payload.get() + 4, pkt.header.payload_size - 4)) {
@@ -310,7 +310,7 @@ bool Parser::parse_net_packets()
         ltproto::Packet packet;
         int ret_value = parse_net_packet(
             buffer_.data() + total_erase_size,
-            buffer_.size() - total_erase_size,
+            static_cast<uint32_t>(buffer_.size() - total_erase_size),
             packet);
         if (ret_value > 0) {
             total_erase_size += ret_value;
