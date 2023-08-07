@@ -24,4 +24,5 @@ message RequestConnectionAck
     optional ltproto.peer2peer.StreamingParams streaming_params = 8;
     string p2p_username = 9;
     string p2p_password = 10;
+    repeated string reflex_servers = 11;
 }

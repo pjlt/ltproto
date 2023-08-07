@@ -20,4 +20,6 @@ message OpenConnection
     string p2p_username = 8;
     string p2p_password = 9;
     string access_token = 10;
+    repeated string reflex_servers = 11;
+    repeated string relay_servers = 12;
 }
