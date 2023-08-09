@@ -10,10 +10,16 @@ message StreamingParams
 {
     enum VideoEncodeBackend
     {
-        Unknown = 0;
+        UnknownVideoEncode = 0;
         NvEnc = 1;
         IntelMediaSDK = 2;
         AMF = 3;
+    }
+    enum VideoCaptureBackend
+    {
+        UnknownVideoCapture = 0;
+        Dxgi = 1;
+        Gdi = 2;
     }
     message VideoCodec
     {
@@ -26,4 +32,6 @@ message StreamingParams
     int32 screen_refresh_rate = 4;
     bool enable_gamepad = 5;
     bool enable_driver_input = 6;
+    VideoCaptureBackend video_capture_backend = 7;
+    optional int64 luid = 8;
 }
