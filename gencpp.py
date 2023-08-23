@@ -43,6 +43,7 @@ PACKET_STRUCTURE = '''
         std::shared_ptr<uint8_t> payload;
         //头部暂时都是死的
         static std::optional<Packet> create(const Message& payload, bool need_xor);
+        static std::optional<Packet> create(const std::shared_ptr<uint8_t>& data, uint32_t len, bool need_xor);
     };
 '''
 
@@ -108,6 +109,24 @@ std::optional<Packet> Packet::create(const Message& payload, bool need_xor)
     else {
         return std::nullopt;
     }
+}
+
+std::optional<Packet> Packet::create(const std::shared_ptr<uint8_t>& data, uint32_t len, bool need_xor)
+{
+    need_xor = false; // XXX
+    Packet pkt{};
+    pkt.header.magic = kMagicV1;
+    pkt.header.xor_key = 0;
+    pkt.header.checksum = 0;
+    pkt.header.payload_size = len;
+    pkt.payload = data;
+    if (need_xor) {
+        pkt.header.xor_key = ::rand() % 254 + 1;
+        for (uint32_t i = 0; i < pkt.header.payload_size; i++) {
+            *pkt.payload.get() ^= (uint8_t)pkt.header.xor_key;
+        }
+    }
+    return pkt;
 }
 
 void Parser::clear()

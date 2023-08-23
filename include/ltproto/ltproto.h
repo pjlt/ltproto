@@ -83,6 +83,7 @@ namespace ltproto
         std::shared_ptr<uint8_t> payload;
         //头部暂时都是死的
         static std::optional<Packet> create(const Message& payload, bool need_xor);
+        static std::optional<Packet> create(const std::shared_ptr<uint8_t>& data, uint32_t len, bool need_xor);
     };
     namespace type
     {
