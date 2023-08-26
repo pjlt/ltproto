@@ -25,4 +25,5 @@ message RequestConnectionAck
     string p2p_username = 9;
     string p2p_password = 10;
     repeated string reflex_servers = 11;
+    int64 request_id = 12;
 }
