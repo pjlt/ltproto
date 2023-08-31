@@ -56,6 +56,11 @@
       "proto": "stop_working.proto"
     },
     {
+      "id": 24,
+      "message": "AudioData",
+      "proto":  "audio_data.proto"
+    },
+    {
       "id": 101,
       "message": "KeyboardEvent",
       "proto": "keyboard_event.proto"

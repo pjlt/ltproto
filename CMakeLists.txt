@@ -29,6 +29,7 @@ function(lt_generate_protobuf_cpp SRCS HDRS)
 endfunction()
 
 set(LT_PROTOS
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/audio_data.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_added_removed.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_response.proto

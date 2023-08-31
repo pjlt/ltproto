@@ -34,4 +34,6 @@ message StreamingParams
     bool enable_driver_input = 6;
     VideoCaptureBackend video_capture_backend = 7;
     optional int64 luid = 8;
+    int32 audio_sample_rate = 9;
+    int32 audio_channels = 10;
 }

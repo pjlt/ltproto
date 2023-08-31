@@ -22,6 +22,7 @@ namespace ltproto
         class StartWorking;
         class StartWorkingAck;
         class StopWorking;
+        class AudioData;
         class KeyboardEvent;
         class ControllerAddedRemoved;
         class ControllerStatus;
@@ -100,6 +101,7 @@ namespace ltproto
         constexpr uint32_t kStartWorking = 21;
         constexpr uint32_t kStartWorkingAck = 22;
         constexpr uint32_t kStopWorking = 23;
+        constexpr uint32_t kAudioData = 24;
         constexpr uint32_t kKeyboardEvent = 101;
         constexpr uint32_t kControllerAddedRemoved = 105;
         constexpr uint32_t kControllerStatus = 106;
@@ -138,6 +140,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<peer2peer::StartWorking>&);
     uint32_t id(const std::shared_ptr<peer2peer::StartWorkingAck>&);
     uint32_t id(const std::shared_ptr<peer2peer::StopWorking>&);
+    uint32_t id(const std::shared_ptr<peer2peer::AudioData>&);
     uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerAddedRemoved>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerStatus>&);

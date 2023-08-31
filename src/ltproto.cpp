@@ -11,6 +11,7 @@
 #include <ltproto/peer2peer/start_working.pb.h>
 #include <ltproto/peer2peer/start_working_ack.pb.h>
 #include <ltproto/peer2peer/stop_working.pb.h>
+#include <ltproto/peer2peer/audio_data.pb.h>
 #include <ltproto/peer2peer/keyboard_event.pb.h>
 #include <ltproto/peer2peer/controller_added_removed.pb.h>
 #include <ltproto/peer2peer/controller_status.pb.h>
@@ -64,6 +65,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<peer2peer::StartWorkingAck>();
     case kStopWorking:
         return std::make_shared<peer2peer::StopWorking>();
+    case kAudioData:
+        return std::make_shared<peer2peer::AudioData>();
     case kKeyboardEvent:
         return std::make_shared<peer2peer::KeyboardEvent>();
     case kControllerAddedRemoved:
@@ -156,6 +159,10 @@ uint32_t id(const std::shared_ptr<peer2peer::StartWorkingAck>&)
 uint32_t id(const std::shared_ptr<peer2peer::StopWorking>&)
 {
     return type::kStopWorking;
+}
+uint32_t id(const std::shared_ptr<peer2peer::AudioData>&)
+{
+    return type::kAudioData;
 }
 uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&)
 {
