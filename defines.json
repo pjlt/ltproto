@@ -58,7 +58,12 @@
     {
       "id": 24,
       "message": "AudioData",
-      "proto":  "audio_data.proto"
+      "proto": "audio_data.proto"
+    },
+    {
+      "id": 25,
+      "message": "RequestKeyframe",
+      "proto": "request_keyframe.proto"
     },
     {
       "id": 101,
@@ -87,6 +92,11 @@
     },
     {
       "id": 109,
+      "message": "CaptureVideoFrameAck",
+      "proto": "capture_video_frame_ack.proto"
+    },
+    {
+      "id": 110,
       "message": "MouseEvent",
       "proto": "mouse_event.proto"
     }

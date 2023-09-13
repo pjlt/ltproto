@@ -31,12 +31,14 @@ endfunction()
 set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/audio_data.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_added_removed.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_response.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_status.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keep_alive.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keyboard_event.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_event.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/request_keyframe.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_working.proto

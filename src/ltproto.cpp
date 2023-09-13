@@ -12,11 +12,13 @@
 #include <ltproto/peer2peer/start_working_ack.pb.h>
 #include <ltproto/peer2peer/stop_working.pb.h>
 #include <ltproto/peer2peer/audio_data.pb.h>
+#include <ltproto/peer2peer/request_keyframe.pb.h>
 #include <ltproto/peer2peer/keyboard_event.pb.h>
 #include <ltproto/peer2peer/controller_added_removed.pb.h>
 #include <ltproto/peer2peer/controller_status.pb.h>
 #include <ltproto/peer2peer/controller_response.pb.h>
 #include <ltproto/peer2peer/capture_video_frame.pb.h>
+#include <ltproto/peer2peer/capture_video_frame_ack.pb.h>
 #include <ltproto/peer2peer/mouse_event.pb.h>
 #include <ltproto/server/login_device.pb.h>
 #include <ltproto/server/login_device_ack.pb.h>
@@ -67,6 +69,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<peer2peer::StopWorking>();
     case kAudioData:
         return std::make_shared<peer2peer::AudioData>();
+    case kRequestKeyframe:
+        return std::make_shared<peer2peer::RequestKeyframe>();
     case kKeyboardEvent:
         return std::make_shared<peer2peer::KeyboardEvent>();
     case kControllerAddedRemoved:
@@ -77,6 +81,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<peer2peer::ControllerResponse>();
     case kCaptureVideoFrame:
         return std::make_shared<peer2peer::CaptureVideoFrame>();
+    case kCaptureVideoFrameAck:
+        return std::make_shared<peer2peer::CaptureVideoFrameAck>();
     case kMouseEvent:
         return std::make_shared<peer2peer::MouseEvent>();
     case kLoginDevice:
@@ -164,6 +170,10 @@ uint32_t id(const std::shared_ptr<peer2peer::AudioData>&)
 {
     return type::kAudioData;
 }
+uint32_t id(const std::shared_ptr<peer2peer::RequestKeyframe>&)
+{
+    return type::kRequestKeyframe;
+}
 uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&)
 {
     return type::kKeyboardEvent;
@@ -183,6 +193,10 @@ uint32_t id(const std::shared_ptr<peer2peer::ControllerResponse>&)
 uint32_t id(const std::shared_ptr<peer2peer::CaptureVideoFrame>&)
 {
     return type::kCaptureVideoFrame;
+}
+uint32_t id(const std::shared_ptr<peer2peer::CaptureVideoFrameAck>&)
+{
+    return type::kCaptureVideoFrameAck;
 }
 uint32_t id(const std::shared_ptr<peer2peer::MouseEvent>&)
 {
