@@ -24,6 +24,7 @@ namespace ltproto
         class StopWorking;
         class AudioData;
         class RequestKeyframe;
+        class TimeSync;
         class KeyboardEvent;
         class ControllerAddedRemoved;
         class ControllerStatus;
@@ -105,6 +106,7 @@ namespace ltproto
         constexpr uint32_t kStopWorking = 23;
         constexpr uint32_t kAudioData = 24;
         constexpr uint32_t kRequestKeyframe = 25;
+        constexpr uint32_t kTimeSync = 26;
         constexpr uint32_t kKeyboardEvent = 101;
         constexpr uint32_t kControllerAddedRemoved = 105;
         constexpr uint32_t kControllerStatus = 106;
@@ -146,6 +148,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<peer2peer::StopWorking>&);
     uint32_t id(const std::shared_ptr<peer2peer::AudioData>&);
     uint32_t id(const std::shared_ptr<peer2peer::RequestKeyframe>&);
+    uint32_t id(const std::shared_ptr<peer2peer::TimeSync>&);
     uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerAddedRemoved>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerStatus>&);

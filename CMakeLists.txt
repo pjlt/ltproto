@@ -47,6 +47,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/stop_working.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/streaming_params.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/switch_hid_driver.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/time_sync.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_codec_type.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_frame.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_frame_ack1.proto

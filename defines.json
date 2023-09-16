@@ -66,6 +66,11 @@
       "proto": "request_keyframe.proto"
     },
     {
+      "id": 26,
+      "message": "TimeSync",
+      "proto": "time_sync.proto"
+    },
+    {
       "id": 101,
       "message": "KeyboardEvent",
       "proto": "keyboard_event.proto"
