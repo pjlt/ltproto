@@ -39,6 +39,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keyboard_event.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_event.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/request_keyframe.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/send_side_stat.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_working.proto

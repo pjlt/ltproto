@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package ltproto.peer2peer;
+
+
+message SendSideStat
+{
+	int32 bwe = 1;
+	int32 nack = 2;
+	float loss_rate = 3;
+}

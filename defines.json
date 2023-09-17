@@ -71,6 +71,11 @@
       "proto": "time_sync.proto"
     },
     {
+      "id": 27,
+      "message": "SendSideStat",
+      "proto": "send_side_stat.proto"
+    },
+    {
       "id": 101,
       "message": "KeyboardEvent",
       "proto": "keyboard_event.proto"
