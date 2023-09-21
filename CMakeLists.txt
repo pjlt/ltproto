@@ -30,8 +30,9 @@ endfunction()
 
 set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/audio_data.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame_ack.proto
+    # 在Service和Worker之间shared handle才需要这个
+    #${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
+    #${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_added_removed.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_response.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_status.proto

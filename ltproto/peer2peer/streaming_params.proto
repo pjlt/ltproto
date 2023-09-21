@@ -21,12 +21,7 @@ message StreamingParams
         Dxgi = 1;
         Gdi = 2;
     }
-    message VideoCodec
-    {
-        VideoEncodeBackend backend = 1;
-        peer2peer.VideoCodecType codec_type = 2;
-    }
-    repeated VideoCodec video_codecs = 1;
+    repeated peer2peer.VideoCodecType video_codecs = 1;
     int32 video_width = 2;
     int32 video_height = 3;
     int32 screen_refresh_rate = 4;
