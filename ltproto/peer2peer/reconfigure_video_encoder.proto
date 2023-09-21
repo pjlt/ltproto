@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package ltproto.peer2peer;
+
+message ReconfigureVideoEncoder
+{
+    optional uint32 bitrate_bps = 1;
+    optional uint32 fps = 2;
+}
