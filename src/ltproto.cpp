@@ -15,6 +15,7 @@
 #include <ltproto/peer2peer/request_keyframe.pb.h>
 #include <ltproto/peer2peer/time_sync.pb.h>
 #include <ltproto/peer2peer/send_side_stat.pb.h>
+#include <ltproto/peer2peer/reconfigure_video_encoder.pb.h>
 #include <ltproto/peer2peer/keyboard_event.pb.h>
 #include <ltproto/peer2peer/controller_added_removed.pb.h>
 #include <ltproto/peer2peer/controller_status.pb.h>
@@ -75,6 +76,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<peer2peer::TimeSync>();
     case kSendSideStat:
         return std::make_shared<peer2peer::SendSideStat>();
+    case kReconfigureVideoEncoder:
+        return std::make_shared<peer2peer::ReconfigureVideoEncoder>();
     case kKeyboardEvent:
         return std::make_shared<peer2peer::KeyboardEvent>();
     case kControllerAddedRemoved:
@@ -181,6 +184,10 @@ uint32_t id(const std::shared_ptr<peer2peer::TimeSync>&)
 uint32_t id(const std::shared_ptr<peer2peer::SendSideStat>&)
 {
     return type::kSendSideStat;
+}
+uint32_t id(const std::shared_ptr<peer2peer::ReconfigureVideoEncoder>&)
+{
+    return type::kReconfigureVideoEncoder;
 }
 uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&)
 {

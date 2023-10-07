@@ -76,6 +76,11 @@
       "proto": "send_side_stat.proto"
     },
     {
+      "id": 28,
+      "message": "ReconfigureVideoEncoder",
+      "proto": "reconfigure_video_encoder.proto"
+    },
+    {
       "id": 101,
       "message": "KeyboardEvent",
       "proto": "keyboard_event.proto"
