@@ -22,4 +22,6 @@ message OpenConnection
     string access_token = 10;
     repeated string reflex_servers = 11;
     repeated string relay_servers = 12;
+    int64 client_device_id = 13;
+    string cookie = 14;
 }

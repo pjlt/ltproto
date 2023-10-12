@@ -21,6 +21,8 @@
 #include <ltproto/peer2peer/controller_status.pb.h>
 #include <ltproto/peer2peer/controller_response.pb.h>
 #include <ltproto/peer2peer/mouse_event.pb.h>
+#include <ltproto/peer2peer/confirm_connection.pb.h>
+#include <ltproto/peer2peer/confirm_connection_ack.pb.h>
 #include <ltproto/server/login_device.pb.h>
 #include <ltproto/server/login_device_ack.pb.h>
 #include <ltproto/server/login_user.pb.h>
@@ -88,6 +90,10 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<peer2peer::ControllerResponse>();
     case kMouseEvent:
         return std::make_shared<peer2peer::MouseEvent>();
+    case kConfirmConnection:
+        return std::make_shared<peer2peer::ConfirmConnection>();
+    case kConfirmConnectionAck:
+        return std::make_shared<peer2peer::ConfirmConnectionAck>();
     case kLoginDevice:
         return std::make_shared<server::LoginDevice>();
     case kLoginDeviceAck:
@@ -208,6 +214,14 @@ uint32_t id(const std::shared_ptr<peer2peer::ControllerResponse>&)
 uint32_t id(const std::shared_ptr<peer2peer::MouseEvent>&)
 {
     return type::kMouseEvent;
+}
+uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnection>&)
+{
+    return type::kConfirmConnection;
+}
+uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnectionAck>&)
+{
+    return type::kConfirmConnectionAck;
 }
 uint32_t id(const std::shared_ptr<server::LoginDevice>&)
 {

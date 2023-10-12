@@ -32,6 +32,8 @@ namespace ltproto
         class ControllerStatus;
         class ControllerResponse;
         class MouseEvent;
+        class ConfirmConnection;
+        class ConfirmConnectionAck;
     }
     namespace server
     {
@@ -114,6 +116,8 @@ namespace ltproto
         constexpr uint32_t kControllerStatus = 106;
         constexpr uint32_t kControllerResponse = 107;
         constexpr uint32_t kMouseEvent = 110;
+        constexpr uint32_t kConfirmConnection = 301;
+        constexpr uint32_t kConfirmConnectionAck = 302;
         constexpr uint32_t kLoginDevice = 1001;
         constexpr uint32_t kLoginDeviceAck = 1002;
         constexpr uint32_t kLoginUser = 1003;
@@ -156,6 +160,8 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<peer2peer::ControllerStatus>&);
     uint32_t id(const std::shared_ptr<peer2peer::ControllerResponse>&);
     uint32_t id(const std::shared_ptr<peer2peer::MouseEvent>&);
+    uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnection>&);
+    uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnectionAck>&);
     uint32_t id(const std::shared_ptr<server::LoginDevice>&);
     uint32_t id(const std::shared_ptr<server::LoginDeviceAck>&);
     uint32_t id(const std::shared_ptr<server::LoginUser>&);
