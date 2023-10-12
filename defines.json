@@ -104,6 +104,16 @@
       "id": 110,
       "message": "MouseEvent",
       "proto": "mouse_event.proto"
+    },
+    {
+      "id": 301,
+      "message": "ConfirmConnection",
+      "proto": "confirm_connection.proto"
+    },
+    {
+      "id": 302,
+      "message": "ConfirmConnectionAck",
+      "proto": "confirm_connection_ack.proto"
     }
   ],
   "server": [

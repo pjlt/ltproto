@@ -16,4 +16,5 @@ message RequestConnection
     optional ltproto.peer2peer.StreamingParams streaming_params = 3;
     string access_token = 4;
     int64 request_id = 5;
+    string cookie = 6;
 }

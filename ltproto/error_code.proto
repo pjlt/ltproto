@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package ltproto;
+option java_package = "cn.lanthing.ltproto";
+
+
+enum ErrorCode
+{
+    Unknown = 0;
+    //1~200: xxx
+    //201~500: xxx
+}
+
