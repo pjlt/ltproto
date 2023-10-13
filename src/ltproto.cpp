@@ -1,28 +1,7 @@
 //这个文件是自动生成的，请不要手动修改.
 #include <ltproto/ltproto.h>
-#include <ltproto/peer2peer/keep_alive.pb.h>
-#include <ltproto/peer2peer/video_frame.pb.h>
-#include <ltproto/peer2peer/video_frame_ack1.pb.h>
-#include <ltproto/peer2peer/video_frame_ack2.pb.h>
-#include <ltproto/peer2peer/start_transmission.pb.h>
-#include <ltproto/peer2peer/start_transmission_ack.pb.h>
-#include <ltproto/peer2peer/stop_transmission.pb.h>
-#include <ltproto/peer2peer/streaming_params.pb.h>
-#include <ltproto/peer2peer/start_working.pb.h>
-#include <ltproto/peer2peer/start_working_ack.pb.h>
-#include <ltproto/peer2peer/stop_working.pb.h>
-#include <ltproto/peer2peer/audio_data.pb.h>
-#include <ltproto/peer2peer/request_keyframe.pb.h>
-#include <ltproto/peer2peer/time_sync.pb.h>
-#include <ltproto/peer2peer/send_side_stat.pb.h>
-#include <ltproto/peer2peer/reconfigure_video_encoder.pb.h>
-#include <ltproto/peer2peer/keyboard_event.pb.h>
-#include <ltproto/peer2peer/controller_added_removed.pb.h>
-#include <ltproto/peer2peer/controller_status.pb.h>
-#include <ltproto/peer2peer/controller_response.pb.h>
-#include <ltproto/peer2peer/mouse_event.pb.h>
-#include <ltproto/peer2peer/confirm_connection.pb.h>
-#include <ltproto/peer2peer/confirm_connection_ack.pb.h>
+#include <ltproto/common/keep_alive.pb.h>
+#include <ltproto/common/streaming_params.pb.h>
 #include <ltproto/server/login_device.pb.h>
 #include <ltproto/server/login_device_ack.pb.h>
 #include <ltproto/server/login_user.pb.h>
@@ -38,7 +17,29 @@
 #include <ltproto/signaling/signaling_message_ack.pb.h>
 #include <ltproto/signaling/join_room.pb.h>
 #include <ltproto/signaling/join_room_ack.pb.h>
-#include <ltproto/ui/push_device_id.pb.h>
+#include <ltproto/client2service/time_sync.pb.h>
+#include <ltproto/client2worker/audio_data.pb.h>
+#include <ltproto/client2worker/controller_added_removed.pb.h>
+#include <ltproto/client2worker/controller_status.pb.h>
+#include <ltproto/client2worker/controller_response.pb.h>
+#include <ltproto/client2worker/mouse_event.pb.h>
+#include <ltproto/client2worker/keyboard_event.pb.h>
+#include <ltproto/client2worker/send_side_stat.pb.h>
+#include <ltproto/client2worker/request_keyframe.pb.h>
+#include <ltproto/client2worker/video_frame.pb.h>
+#include <ltproto/client2worker/video_frame_ack1.pb.h>
+#include <ltproto/client2worker/video_frame_ack2.pb.h>
+#include <ltproto/client2worker/start_transmission.pb.h>
+#include <ltproto/client2worker/start_transmission_ack.pb.h>
+#include <ltproto/client2worker/stop_transmission.pb.h>
+#include <ltproto/service2app/confirm_connection.pb.h>
+#include <ltproto/service2app/confirm_connection_ack.pb.h>
+#include <ltproto/service2app/accepted_client.pb.h>
+#include <ltproto/service2app/disconnected_client.pb.h>
+#include <ltproto/worker2service/reconfigure_video_encoder.pb.h>
+#include <ltproto/worker2service/start_working.pb.h>
+#include <ltproto/worker2service/start_working_ack.pb.h>
+#include <ltproto/worker2service/stop_working.pb.h>
 
 
 namespace ltproto
@@ -49,51 +50,9 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
     using namespace type;
     switch (_type) {
     case kKeepAlive:
-        return std::make_shared<peer2peer::KeepAlive>();
-    case kVideoFrame:
-        return std::make_shared<peer2peer::VideoFrame>();
-    case kVideoFrameAck1:
-        return std::make_shared<peer2peer::VideoFrameAck1>();
-    case kVideoFrameAck2:
-        return std::make_shared<peer2peer::VideoFrameAck2>();
-    case kStartTransmission:
-        return std::make_shared<peer2peer::StartTransmission>();
-    case kStartTransmissionAck:
-        return std::make_shared<peer2peer::StartTransmissionAck>();
-    case kStopTransmission:
-        return std::make_shared<peer2peer::StopTransmission>();
+        return std::make_shared<common::KeepAlive>();
     case kStreamingParams:
-        return std::make_shared<peer2peer::StreamingParams>();
-    case kStartWorking:
-        return std::make_shared<peer2peer::StartWorking>();
-    case kStartWorkingAck:
-        return std::make_shared<peer2peer::StartWorkingAck>();
-    case kStopWorking:
-        return std::make_shared<peer2peer::StopWorking>();
-    case kAudioData:
-        return std::make_shared<peer2peer::AudioData>();
-    case kRequestKeyframe:
-        return std::make_shared<peer2peer::RequestKeyframe>();
-    case kTimeSync:
-        return std::make_shared<peer2peer::TimeSync>();
-    case kSendSideStat:
-        return std::make_shared<peer2peer::SendSideStat>();
-    case kReconfigureVideoEncoder:
-        return std::make_shared<peer2peer::ReconfigureVideoEncoder>();
-    case kKeyboardEvent:
-        return std::make_shared<peer2peer::KeyboardEvent>();
-    case kControllerAddedRemoved:
-        return std::make_shared<peer2peer::ControllerAddedRemoved>();
-    case kControllerStatus:
-        return std::make_shared<peer2peer::ControllerStatus>();
-    case kControllerResponse:
-        return std::make_shared<peer2peer::ControllerResponse>();
-    case kMouseEvent:
-        return std::make_shared<peer2peer::MouseEvent>();
-    case kConfirmConnection:
-        return std::make_shared<peer2peer::ConfirmConnection>();
-    case kConfirmConnectionAck:
-        return std::make_shared<peer2peer::ConfirmConnectionAck>();
+        return std::make_shared<common::StreamingParams>();
     case kLoginDevice:
         return std::make_shared<server::LoginDevice>();
     case kLoginDeviceAck:
@@ -124,104 +83,64 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<signaling::JoinRoom>();
     case kJoinRoomAck:
         return std::make_shared<signaling::JoinRoomAck>();
-    case kPushDeviceID:
-        return std::make_shared<ui::PushDeviceID>();
+    case kTimeSync:
+        return std::make_shared<client2service::TimeSync>();
+    case kAudioData:
+        return std::make_shared<client2worker::AudioData>();
+    case kControllerAddedRemoved:
+        return std::make_shared<client2worker::ControllerAddedRemoved>();
+    case kControllerStatus:
+        return std::make_shared<client2worker::ControllerStatus>();
+    case kControllerResponse:
+        return std::make_shared<client2worker::ControllerResponse>();
+    case kMouseEvent:
+        return std::make_shared<client2worker::MouseEvent>();
+    case kKeyboardEvent:
+        return std::make_shared<client2worker::KeyboardEvent>();
+    case kSendSideStat:
+        return std::make_shared<client2worker::SendSideStat>();
+    case kRequestKeyframe:
+        return std::make_shared<client2worker::RequestKeyframe>();
+    case kVideoFrame:
+        return std::make_shared<client2worker::VideoFrame>();
+    case kVideoFrameAck1:
+        return std::make_shared<client2worker::VideoFrameAck1>();
+    case kVideoFrameAck2:
+        return std::make_shared<client2worker::VideoFrameAck2>();
+    case kStartTransmission:
+        return std::make_shared<client2worker::StartTransmission>();
+    case kStartTransmissionAck:
+        return std::make_shared<client2worker::StartTransmissionAck>();
+    case kStopTransmission:
+        return std::make_shared<client2worker::StopTransmission>();
+    case kConfirmConnection:
+        return std::make_shared<service2app::ConfirmConnection>();
+    case kConfirmConnectionAck:
+        return std::make_shared<service2app::ConfirmConnectionAck>();
+    case kAcceptedClient:
+        return std::make_shared<service2app::AcceptedClient>();
+    case kDisconnectedClient:
+        return std::make_shared<service2app::DisconnectedClient>();
+    case kReconfigureVideoEncoder:
+        return std::make_shared<worker2service::ReconfigureVideoEncoder>();
+    case kStartWorking:
+        return std::make_shared<worker2service::StartWorking>();
+    case kStartWorkingAck:
+        return std::make_shared<worker2service::StartWorkingAck>();
+    case kStopWorking:
+        return std::make_shared<worker2service::StopWorking>();
     default:
         return nullptr;
     }
 }
 
-uint32_t id(const std::shared_ptr<peer2peer::KeepAlive>&)
+uint32_t id(const std::shared_ptr<common::KeepAlive>&)
 {
     return type::kKeepAlive;
 }
-uint32_t id(const std::shared_ptr<peer2peer::VideoFrame>&)
-{
-    return type::kVideoFrame;
-}
-uint32_t id(const std::shared_ptr<peer2peer::VideoFrameAck1>&)
-{
-    return type::kVideoFrameAck1;
-}
-uint32_t id(const std::shared_ptr<peer2peer::VideoFrameAck2>&)
-{
-    return type::kVideoFrameAck2;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StartTransmission>&)
-{
-    return type::kStartTransmission;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StartTransmissionAck>&)
-{
-    return type::kStartTransmissionAck;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StopTransmission>&)
-{
-    return type::kStopTransmission;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StreamingParams>&)
+uint32_t id(const std::shared_ptr<common::StreamingParams>&)
 {
     return type::kStreamingParams;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StartWorking>&)
-{
-    return type::kStartWorking;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StartWorkingAck>&)
-{
-    return type::kStartWorkingAck;
-}
-uint32_t id(const std::shared_ptr<peer2peer::StopWorking>&)
-{
-    return type::kStopWorking;
-}
-uint32_t id(const std::shared_ptr<peer2peer::AudioData>&)
-{
-    return type::kAudioData;
-}
-uint32_t id(const std::shared_ptr<peer2peer::RequestKeyframe>&)
-{
-    return type::kRequestKeyframe;
-}
-uint32_t id(const std::shared_ptr<peer2peer::TimeSync>&)
-{
-    return type::kTimeSync;
-}
-uint32_t id(const std::shared_ptr<peer2peer::SendSideStat>&)
-{
-    return type::kSendSideStat;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ReconfigureVideoEncoder>&)
-{
-    return type::kReconfigureVideoEncoder;
-}
-uint32_t id(const std::shared_ptr<peer2peer::KeyboardEvent>&)
-{
-    return type::kKeyboardEvent;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ControllerAddedRemoved>&)
-{
-    return type::kControllerAddedRemoved;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ControllerStatus>&)
-{
-    return type::kControllerStatus;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ControllerResponse>&)
-{
-    return type::kControllerResponse;
-}
-uint32_t id(const std::shared_ptr<peer2peer::MouseEvent>&)
-{
-    return type::kMouseEvent;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnection>&)
-{
-    return type::kConfirmConnection;
-}
-uint32_t id(const std::shared_ptr<peer2peer::ConfirmConnectionAck>&)
-{
-    return type::kConfirmConnectionAck;
 }
 uint32_t id(const std::shared_ptr<server::LoginDevice>&)
 {
@@ -283,9 +202,97 @@ uint32_t id(const std::shared_ptr<signaling::JoinRoomAck>&)
 {
     return type::kJoinRoomAck;
 }
-uint32_t id(const std::shared_ptr<ui::PushDeviceID>&)
+uint32_t id(const std::shared_ptr<client2service::TimeSync>&)
 {
-    return type::kPushDeviceID;
+    return type::kTimeSync;
+}
+uint32_t id(const std::shared_ptr<client2worker::AudioData>&)
+{
+    return type::kAudioData;
+}
+uint32_t id(const std::shared_ptr<client2worker::ControllerAddedRemoved>&)
+{
+    return type::kControllerAddedRemoved;
+}
+uint32_t id(const std::shared_ptr<client2worker::ControllerStatus>&)
+{
+    return type::kControllerStatus;
+}
+uint32_t id(const std::shared_ptr<client2worker::ControllerResponse>&)
+{
+    return type::kControllerResponse;
+}
+uint32_t id(const std::shared_ptr<client2worker::MouseEvent>&)
+{
+    return type::kMouseEvent;
+}
+uint32_t id(const std::shared_ptr<client2worker::KeyboardEvent>&)
+{
+    return type::kKeyboardEvent;
+}
+uint32_t id(const std::shared_ptr<client2worker::SendSideStat>&)
+{
+    return type::kSendSideStat;
+}
+uint32_t id(const std::shared_ptr<client2worker::RequestKeyframe>&)
+{
+    return type::kRequestKeyframe;
+}
+uint32_t id(const std::shared_ptr<client2worker::VideoFrame>&)
+{
+    return type::kVideoFrame;
+}
+uint32_t id(const std::shared_ptr<client2worker::VideoFrameAck1>&)
+{
+    return type::kVideoFrameAck1;
+}
+uint32_t id(const std::shared_ptr<client2worker::VideoFrameAck2>&)
+{
+    return type::kVideoFrameAck2;
+}
+uint32_t id(const std::shared_ptr<client2worker::StartTransmission>&)
+{
+    return type::kStartTransmission;
+}
+uint32_t id(const std::shared_ptr<client2worker::StartTransmissionAck>&)
+{
+    return type::kStartTransmissionAck;
+}
+uint32_t id(const std::shared_ptr<client2worker::StopTransmission>&)
+{
+    return type::kStopTransmission;
+}
+uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&)
+{
+    return type::kConfirmConnection;
+}
+uint32_t id(const std::shared_ptr<service2app::ConfirmConnectionAck>&)
+{
+    return type::kConfirmConnectionAck;
+}
+uint32_t id(const std::shared_ptr<service2app::AcceptedClient>&)
+{
+    return type::kAcceptedClient;
+}
+uint32_t id(const std::shared_ptr<service2app::DisconnectedClient>&)
+{
+    return type::kDisconnectedClient;
+}
+uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&)
+{
+    return type::kReconfigureVideoEncoder;
+}
+uint32_t id(const std::shared_ptr<worker2service::StartWorking>&)
+{
+    return type::kStartWorking;
+}
+uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&)
+{
+    return type::kStartWorkingAck;
+}
+uint32_t id(const std::shared_ptr<worker2service::StopWorking>&)
+{
+    return type::kStopWorking;
 }
 
 std::optional<Packet> Packet::create(const Message& payload, bool need_xor)

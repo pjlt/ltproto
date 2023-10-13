@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package ltproto.client2worker;
+
+message AudioData
+{
+    bytes data = 1;
+}

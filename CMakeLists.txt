@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(ltproto)
 
-option(GENERATE_LTPROTO ON)
+option(GENERATE_LTPROTO OFF)
 
 
 set(PROTOC_PATH protobuf::protoc)
@@ -29,34 +29,13 @@ function(lt_generate_protobuf_cpp SRCS HDRS)
 endfunction()
 
 set(LT_PROTOS
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/audio_data.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/confirm_connection.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/confirm_connection_ack.proto
-    # 在Service和Worker之间shared handle才需要这个
-    #${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame.proto
-    #${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/capture_video_frame_ack.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_added_removed.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_response.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/controller_status.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keep_alive.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/keyboard_event.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/mouse_event.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/reconfigure_video_encoder.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/request_keyframe.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/send_side_stat.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_transmission_ack.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_working.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/start_working_ack.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/stop_transmission.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/stop_working.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/streaming_params.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/switch_hid_driver.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/time_sync.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_codec_type.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_frame.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_frame_ack1.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/peer2peer/video_frame_ack2.proto
+    #root
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/error_code.proto
+    #common
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/keep_alive.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/streaming_params.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/video_codec_type.proto
+    #server
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/allocate_device_id.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/allocate_device_id_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/close_connection.proto
@@ -69,11 +48,38 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/open_connection_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/request_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/request_connection_ack.proto
+    #signaling
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/join_room.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/join_room_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/signaling_message.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/signaling_message_ack.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/ui/push_device_id.proto
+    #client2service
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2service/time_sync.proto
+    #client2worker
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/audio_data.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/controller_added_removed.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/controller_response.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/controller_status.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/keyboard_event.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/mouse_event.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/request_keyframe.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/send_side_stat.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/start_transmission.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/start_transmission_ack.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/stop_transmission.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame_ack1.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame_ack2.proto
+    #service2app
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection_ack.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/accepted_client.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/disconnected_client.proto
+    #worker2service
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/reconfigure_video_encoder.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working_ack.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/stop_working.proto
 )
 
 lt_generate_protobuf_cpp(GENERATED_PROTO_CC GENERATED_PROTO_H ${LT_PROTOS})

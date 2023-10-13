@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "ltproto/peer2peer/streaming_params.proto";
+import "ltproto/common/streaming_params.proto";
 
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
@@ -21,7 +21,7 @@ message RequestConnectionAck
     string room_id = 5;
     string client_id = 6;
     string auth_token = 7;
-    optional ltproto.peer2peer.StreamingParams streaming_params = 8;
+    optional ltproto.common.StreamingParams streaming_params = 8;
     string p2p_username = 9;
     string p2p_password = 10;
     repeated string reflex_servers = 11;

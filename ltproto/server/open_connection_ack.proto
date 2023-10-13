@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-import "ltproto/peer2peer/streaming_params.proto";
+import "ltproto/common/streaming_params.proto";
 
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
@@ -15,5 +15,5 @@ message OpenConnectionAck
         Invalid = 1;
     }
     ErrCode err_code = 1;
-    optional ltproto.peer2peer.StreamingParams streaming_params = 2;
+    optional ltproto.common.StreamingParams streaming_params = 2;
 }

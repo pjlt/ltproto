@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-import "ltproto/peer2peer/video_codec_type.proto";
+import "ltproto/common/video_codec_type.proto";
 
-package ltproto.peer2peer;
-option java_package = "cn.lanthing.ltproto.peer2peer";
+package ltproto.common;
+option java_package = "cn.lanthing.ltproto.common";
 option java_outer_classname = "StreamingParamsProto";
 
 message StreamingParams
@@ -21,7 +21,7 @@ message StreamingParams
         Dxgi = 1;
         Gdi = 2;
     }
-    repeated peer2peer.VideoCodecType video_codecs = 1;
+    repeated common.VideoCodecType video_codecs = 1;
     int32 video_width = 2;
     int32 video_height = 3;
     int32 screen_refresh_rate = 4;

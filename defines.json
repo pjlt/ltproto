@@ -1,119 +1,14 @@
 {
-  "peer2peer": [
+  "common": [
     {
       "id": 1,
       "message": "KeepAlive",
       "proto": "keep_alive.proto"
     },
     {
-      "id": 14,
-      "message": "VideoFrame",
-      "proto": "video_frame.proto"
-    },
-    {
-      "id": 15,
-      "message": "VideoFrameAck1",
-      "proto": "video_frame_ack1.proto"
-    },
-    {
-      "id": 16,
-      "message": "VideoFrameAck2",
-      "proto": "video_frame_ack2.proto"
-    },
-    {
-      "id": 17,
-      "message": "StartTransmission",
-      "proto": "start_transmission.proto"
-    },
-    {
-      "id": 18,
-      "message": "StartTransmissionAck",
-      "proto": "start_transmission_ack.proto"
-    },
-    {
-      "id": 19,
-      "message": "StopTransmission",
-      "proto": "stop_transmission.proto"
-    },
-    {
-      "id": 20,
+      "id": 2,
       "message": "StreamingParams",
       "proto": "streaming_params.proto"
-    },
-    {
-      "id": 21,
-      "message": "StartWorking",
-      "proto": "start_working.proto"
-    },
-    {
-      "id": 22,
-      "message": "StartWorkingAck",
-      "proto": "start_working_ack.proto"
-    },
-    {
-      "id": 23,
-      "message": "StopWorking",
-      "proto": "stop_working.proto"
-    },
-    {
-      "id": 24,
-      "message": "AudioData",
-      "proto": "audio_data.proto"
-    },
-    {
-      "id": 25,
-      "message": "RequestKeyframe",
-      "proto": "request_keyframe.proto"
-    },
-    {
-      "id": 26,
-      "message": "TimeSync",
-      "proto": "time_sync.proto"
-    },
-    {
-      "id": 27,
-      "message": "SendSideStat",
-      "proto": "send_side_stat.proto"
-    },
-    {
-      "id": 28,
-      "message": "ReconfigureVideoEncoder",
-      "proto": "reconfigure_video_encoder.proto"
-    },
-    {
-      "id": 101,
-      "message": "KeyboardEvent",
-      "proto": "keyboard_event.proto"
-    },
-    {
-      "id": 105,
-      "message": "ControllerAddedRemoved",
-      "proto": "controller_added_removed.proto"
-    },
-    {
-      "id": 106,
-      "message": "ControllerStatus",
-      "proto": "controller_status.proto"
-    },
-    {
-      "id": 107,
-      "message": "ControllerResponse",
-      "proto": "controller_response.proto"
-    },
-    {
-      "id": 110,
-      "message": "MouseEvent",
-      "proto": "mouse_event.proto"
-    },
-    {
-      "id": 301,
-      "message": "ConfirmConnection",
-      "proto": "confirm_connection.proto"
-    },
-    {
-      "id": 302,
-      "message": "ConfirmConnectionAck",
-      "proto": "confirm_connection_ack.proto"
     }
   ],
   "server": [
@@ -148,27 +43,27 @@
       "proto": "allocate_device_id_ack.proto"
     },
     {
-      "id": 3001,
+      "id": 1007,
       "message": "RequestConnection",
       "proto": "request_connection.proto"
     },
     {
-      "id": 3002,
+      "id": 1008,
       "message": "RequestConnectionAck",
       "proto": "request_connection_ack.proto"
     },
     {
-      "id": 3003,
+      "id": 1009,
       "message": "OpenConnection",
       "proto": "open_connection.proto"
     },
     {
-      "id": 3004,
+      "id": 1010,
       "message": "OpenConnectionAck",
       "proto": "open_connection_ack.proto"
     },
     {
-      "id": 3005,
+      "id": 1011,
       "message": "CloseConnection",
       "proto": "close_connection.proto"
     }
@@ -195,11 +90,128 @@
       "proto": "join_room_ack.proto"
     }
   ],
-  "ui": [
+  "client2app": [],
+  "client2service": [
     {
       "id": 4001,
-      "message": "PushDeviceID",
-      "proto": "push_device_id.proto"
+      "message": "TimeSync",
+      "proto": "time_sync.proto"
+    }
+  ],
+  "client2worker": [
+    {
+      "id": 5001,
+      "message": "AudioData",
+      "proto": "audio_data.proto"
+    },
+    {
+      "id": 5002,
+      "message": "ControllerAddedRemoved",
+      "proto": "controller_added_removed.proto"
+    },
+    {
+      "id": 5003,
+      "message": "ControllerStatus",
+      "proto": "controller_status.proto"
+    },
+    {
+      "id": 5004,
+      "message": "ControllerResponse",
+      "proto": "controller_response.proto"
+    },
+    {
+      "id": 5005,
+      "message": "MouseEvent",
+      "proto": "mouse_event.proto"
+    },
+    {
+      "id": 5006,
+      "message": "KeyboardEvent",
+      "proto": "keyboard_event.proto"
+    },
+    {
+      "id": 5007,
+      "message": "SendSideStat",
+      "proto": "send_side_stat.proto"
+    },
+    {
+      "id": 5008,
+      "message": "RequestKeyframe",
+      "proto": "request_keyframe.proto"
+    },
+    {
+      "id": 5009,
+      "message": "VideoFrame",
+      "proto": "video_frame.proto"
+    },
+    {
+      "id": 5010,
+      "message": "VideoFrameAck1",
+      "proto": "video_frame_ack1.proto"
+    },
+    {
+      "id": 5011,
+      "message": "VideoFrameAck2",
+      "proto": "video_frame_ack2.proto"
+    },
+    {
+      "id": 5012,
+      "message": "StartTransmission",
+      "proto": "start_transmission.proto"
+    },
+    {
+      "id": 5013,
+      "message": "StartTransmissionAck",
+      "proto": "start_transmission_ack.proto"
+    },
+    {
+      "id": 5014,
+      "message": "StopTransmission",
+      "proto": "stop_transmission.proto"
+    }
+  ],
+  "service2app": [
+    {
+      "id": 6001,
+      "message": "ConfirmConnection",
+      "proto": "confirm_connection.proto"
+    },
+    {
+      "id": 6002,
+      "message": "ConfirmConnectionAck",
+      "proto": "confirm_connection_ack.proto"
+    },
+    {
+      "id": 6003,
+      "message": "AcceptedClient",
+      "proto": "accepted_client.proto"
+    },
+    {
+      "id": 6004,
+      "message": "DisconnectedClient",
+      "proto": "disconnected_client.proto"
+    }
+  ],
+  "worker2service": [
+    {
+      "id": 7001,
+      "message": "ReconfigureVideoEncoder",
+      "proto": "reconfigure_video_encoder.proto"
+    },
+    {
+      "id": 7002,
+      "message": "StartWorking",
+      "proto": "start_working.proto"
+    },
+    {
+      "id": 7003,
+      "message": "StartWorkingAck",
+      "proto": "start_working_ack.proto"
+    },
+    {
+      "id": 7004,
+      "message": "StopWorking",
+      "proto": "stop_working.proto"
     }
   ]
 }

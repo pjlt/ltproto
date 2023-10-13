@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-package ltproto.peer2peer;
-option go_package = "ltproto/peer2peer";
-option java_package = "cn.lanthing.proto";
+package ltproto.client2worker;
 
 message VideoFrame
 {
