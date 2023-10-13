@@ -63,10 +63,11 @@
                 <configuration>
                     <protoSourceRoot>${project.basedir}</protoSourceRoot>
                     <includes>
-                        <include>ltproto/peer2peer/video_codec_type.proto</include>
-                        <include>ltproto/peer2peer/streaming_params.proto</include>
+                        <include>ltproto/common/video_codec_type.proto</include>
+                        <include>ltproto/common/streaming_params.proto</include>
                         <include>ltproto/server/*.proto</include>
                         <include>ltproto/signaling/*.proto</include>
+                        <include>ltproto/error_code.proto</include>
                     </includes>
                     <!--outputDirectory>${project.basedir}/src/main/proto</outputDirectory-->
                     <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>

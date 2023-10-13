@@ -6,7 +6,7 @@ option java_outer_classname = "VideoCodecTypeProto";
 
 enum VideoCodecType
 {
-    UnknownVCT = 0; //直接用Unknown容易跟包内其它名字冲突.
+    UnknownVCT = 0;
     AVC = 1;
     HEVC = 2;
 }

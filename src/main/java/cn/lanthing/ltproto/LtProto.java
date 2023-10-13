@@ -13,15 +13,15 @@ public enum LtProto {
 
     AllocateDeviceIDAck(1006, "cn.lanthing.ltproto.server.AllocateDeviceIDAckProto$AllocateDeviceIDAck"),
 
-    RequestConnection(3001, "cn.lanthing.ltproto.server.RequestConnectionProto$RequestConnection"),
+    RequestConnection(1007, "cn.lanthing.ltproto.server.RequestConnectionProto$RequestConnection"),
 
-    RequestConnectionAck(3002, "cn.lanthing.ltproto.server.RequestConnectionAckProto$RequestConnectionAck"),
+    RequestConnectionAck(1008, "cn.lanthing.ltproto.server.RequestConnectionAckProto$RequestConnectionAck"),
 
-    OpenConnection(3003, "cn.lanthing.ltproto.server.OpenConnectionProto$OpenConnection"),
+    OpenConnection(1009, "cn.lanthing.ltproto.server.OpenConnectionProto$OpenConnection"),
 
-    OpenConnectionAck(3004, "cn.lanthing.ltproto.server.OpenConnectionAckProto$OpenConnectionAck"),
+    OpenConnectionAck(1010, "cn.lanthing.ltproto.server.OpenConnectionAckProto$OpenConnectionAck"),
 
-    CloseConnection(3005, "cn.lanthing.ltproto.server.CloseConnectionProto$CloseConnection"),
+    CloseConnection(1011, "cn.lanthing.ltproto.server.CloseConnectionProto$CloseConnection"),
 
     SignalingMessage(2001, "cn.lanthing.ltproto.signaling.SignalingMessageProto$SignalingMessage"),
 
