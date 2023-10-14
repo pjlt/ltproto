@@ -1,16 +1,11 @@
 syntax = "proto3";
 
+import "ltproto/error_code.proto";
+
 package ltproto.worker2service;
 
 message StartWorkingAck
 {
-	enum ErrCode
-    {
-        Success = 0;
-        VideoFailed = 1;
-        AudioFailed = 2;
-        InputFailed = 3;
-    }
-	ErrCode err_code = 1;
+	ltproto.ErrorCode err_code = 1;
     repeated uint32 msg_type = 2;
 }

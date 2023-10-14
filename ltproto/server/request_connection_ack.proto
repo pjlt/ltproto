@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "ltproto/error_code.proto";
 import "ltproto/common/streaming_params.proto";
 
 package ltproto.server;
@@ -9,12 +10,7 @@ option java_outer_classname = "RequestConnectionAckProto";
 // 服务器回给主控端
 message RequestConnectionAck
 {
-    enum ErrCode
-    {
-        Success = 0;
-        Failed = 1;
-    }
-    ErrCode err_code = 1;
+    ltproto.ErrorCode err_code = 1;
     int64 device_id = 2;
     string signaling_addr = 3;
     int32 signaling_port = 4;

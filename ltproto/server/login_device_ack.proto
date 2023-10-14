@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ltproto/error_code.proto";
+
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
 option java_outer_classname = "LoginDeviceAckProto";
@@ -7,11 +9,6 @@ option java_outer_classname = "LoginDeviceAckProto";
 
 message LoginDeviceAck
 {
-	  enum ErrCode
-    {
-        Success = 0;
-        Failed = 1;
-    }
-    ErrCode err_code = 1;
+    ltproto.ErrorCode err_code = 1;
     string session_id = 2;
 }

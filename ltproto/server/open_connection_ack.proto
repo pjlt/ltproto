@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "ltproto/error_code.proto";
 import "ltproto/common/streaming_params.proto";
 
 package ltproto.server;
@@ -9,11 +10,6 @@ option java_outer_classname = "OpenConnectionAckProto";
 // 被控端回给服务器
 message OpenConnectionAck
 {
-    enum ErrCode
-    {
-        Success = 0;
-        Invalid = 1;
-    }
-    ErrCode err_code = 1;
+    ltproto.ErrorCode err_code = 1;
     optional ltproto.common.StreamingParams streaming_params = 2;
 }

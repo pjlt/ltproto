@@ -6,8 +6,31 @@ option java_package = "cn.lanthing.ltproto";
 
 enum ErrorCode
 {
-    Unknown = 0;
-    //1~200: xxx
-    //201~500: xxx
+    //整几个万能ErrorCode，实在找不到合适的code再使用
+    Success = 0;
+    Unknown = 1;
+    InternalError = 3;
+    InvalidParameter = 4;
+    InvalidStatus = 5;
+    AppNotOnline = 6;
+    AuthFailed = 7;
+    //10000 ~
+    DecodeFailed = 10001;
+    RenderFailed = 10002;
+    WrokerInitVideoFailed = 11001;
+    WorkerInitAudioFailed = 11002;
+    WorkerInitInputFailed = 11003;
+    ServingAnotherClient = 12001;
+    UserReject = 13001;
+    //30000 ~
+    AllocateDeviceIDNoAvailableID = 30001;
+    LoginDeviceInvalidID = 30002;
+    LoginDeviceInvalidStatus = 30003;
+    RequestConnectionClientRefuse = 30004;
+    RequestConnectionInvalidStatus = 30005;
+    RequestConnectionCreateOrderFailed = 30006;
+    //50000 ~
+    JoinRoomFailed = 50001;
+    SignalingPeerNotOnline = 50002;
 }
 
