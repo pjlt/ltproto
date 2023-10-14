@@ -34,8 +34,10 @@
 #include <ltproto/client2worker/stop_transmission.pb.h>
 #include <ltproto/service2app/confirm_connection.pb.h>
 #include <ltproto/service2app/confirm_connection_ack.pb.h>
-#include <ltproto/service2app/accepted_client.pb.h>
-#include <ltproto/service2app/disconnected_client.pb.h>
+#include <ltproto/service2app/accepted_connection.pb.h>
+#include <ltproto/service2app/disconnected_connection.pb.h>
+#include <ltproto/service2app/connection_status.pb.h>
+#include <ltproto/service2app/operate_connection.pb.h>
 #include <ltproto/worker2service/reconfigure_video_encoder.pb.h>
 #include <ltproto/worker2service/start_working.pb.h>
 #include <ltproto/worker2service/start_working_ack.pb.h>
@@ -117,10 +119,14 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<service2app::ConfirmConnection>();
     case kConfirmConnectionAck:
         return std::make_shared<service2app::ConfirmConnectionAck>();
-    case kAcceptedClient:
-        return std::make_shared<service2app::AcceptedClient>();
-    case kDisconnectedClient:
-        return std::make_shared<service2app::DisconnectedClient>();
+    case kAcceptedConnection:
+        return std::make_shared<service2app::AcceptedConnection>();
+    case kDisconnectedConnection:
+        return std::make_shared<service2app::DisconnectedConnection>();
+    case kConnectionStatus:
+        return std::make_shared<service2app::ConnectionStatus>();
+    case kOperateConnection:
+        return std::make_shared<service2app::OperateConnection>();
     case kReconfigureVideoEncoder:
         return std::make_shared<worker2service::ReconfigureVideoEncoder>();
     case kStartWorking:
@@ -270,13 +276,21 @@ uint32_t id(const std::shared_ptr<service2app::ConfirmConnectionAck>&)
 {
     return type::kConfirmConnectionAck;
 }
-uint32_t id(const std::shared_ptr<service2app::AcceptedClient>&)
+uint32_t id(const std::shared_ptr<service2app::AcceptedConnection>&)
 {
-    return type::kAcceptedClient;
+    return type::kAcceptedConnection;
 }
-uint32_t id(const std::shared_ptr<service2app::DisconnectedClient>&)
+uint32_t id(const std::shared_ptr<service2app::DisconnectedConnection>&)
 {
-    return type::kDisconnectedClient;
+    return type::kDisconnectedConnection;
+}
+uint32_t id(const std::shared_ptr<service2app::ConnectionStatus>&)
+{
+    return type::kConnectionStatus;
+}
+uint32_t id(const std::shared_ptr<service2app::OperateConnection>&)
+{
+    return type::kOperateConnection;
 }
 uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&)
 {

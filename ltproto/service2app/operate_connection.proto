@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package ltproto.service2app;
+
+message OperateConnection
+{
+    enum Operation
+    {
+        EnableGamepad = 0;
+        DisableGamepad = 1;
+        EnableKeyboard = 2;
+        DisableKeyboard = 3;
+        EnableMouse = 4;
+        DisableMouse = 5;
+        Kick = 6;
+    }
+    repeated Operation operations = 1;
+}

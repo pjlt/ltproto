@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ltproto.service2app;
 
-message DisconnectedClient
+message DisconnectedConnection
 {
     int64 device_id = 1;
 }

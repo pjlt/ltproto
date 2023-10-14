@@ -183,13 +183,23 @@
     },
     {
       "id": 6003,
-      "message": "AcceptedClient",
-      "proto": "accepted_client.proto"
+      "message": "AcceptedConnection",
+      "proto": "accepted_connection.proto"
     },
     {
       "id": 6004,
-      "message": "DisconnectedClient",
-      "proto": "disconnected_client.proto"
+      "message": "DisconnectedConnection",
+      "proto": "disconnected_connection.proto"
+    },
+    {
+      "id": 6005,
+      "message": "ConnectionStatus",
+      "proto": "connection_status.proto"
+    },
+    {
+      "id": 6006,
+      "message": "OperateConnection",
+      "proto": "operate_connection.proto"
     }
   ],
   "worker2service": [

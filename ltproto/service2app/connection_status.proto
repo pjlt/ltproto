@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package ltproto.service2app;
+
+message ConnectionStatus
+{
+    int64 device_id = 1;
+    bool enable_gamepad = 2;
+    bool enable_keyboard = 3;
+    bool enable_mouse = 4;
+    bool p2p = 5;
+    bool hit_gamepad = 6;
+    bool hit_keyboard = 7;
+    bool hit_mouse = 8;
+    int32 delay_ms = 9;
+    int32 bandwidth_bps = 10;
+}

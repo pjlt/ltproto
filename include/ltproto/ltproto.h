@@ -63,8 +63,10 @@ namespace ltproto
     {
         class ConfirmConnection;
         class ConfirmConnectionAck;
-        class AcceptedClient;
-        class DisconnectedClient;
+        class AcceptedConnection;
+        class DisconnectedConnection;
+        class ConnectionStatus;
+        class OperateConnection;
     }
     namespace worker2service
     {
@@ -142,8 +144,10 @@ namespace ltproto
         constexpr uint32_t kStopTransmission = 5014;
         constexpr uint32_t kConfirmConnection = 6001;
         constexpr uint32_t kConfirmConnectionAck = 6002;
-        constexpr uint32_t kAcceptedClient = 6003;
-        constexpr uint32_t kDisconnectedClient = 6004;
+        constexpr uint32_t kAcceptedConnection = 6003;
+        constexpr uint32_t kDisconnectedConnection = 6004;
+        constexpr uint32_t kConnectionStatus = 6005;
+        constexpr uint32_t kOperateConnection = 6006;
         constexpr uint32_t kReconfigureVideoEncoder = 7001;
         constexpr uint32_t kStartWorking = 7002;
         constexpr uint32_t kStartWorkingAck = 7003;
@@ -187,8 +191,10 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<client2worker::StopTransmission>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnectionAck>&);
-    uint32_t id(const std::shared_ptr<service2app::AcceptedClient>&);
-    uint32_t id(const std::shared_ptr<service2app::DisconnectedClient>&);
+    uint32_t id(const std::shared_ptr<service2app::AcceptedConnection>&);
+    uint32_t id(const std::shared_ptr<service2app::DisconnectedConnection>&);
+    uint32_t id(const std::shared_ptr<service2app::ConnectionStatus>&);
+    uint32_t id(const std::shared_ptr<service2app::OperateConnection>&);
     uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorking>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&);

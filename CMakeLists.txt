@@ -73,8 +73,10 @@ set(LT_PROTOS
     #service2app
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection_ack.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/accepted_client.proto
-    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/disconnected_client.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/accepted_connection.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/disconnected_connection.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/connection_status.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/operate_connection.proto
     #worker2service
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/reconfigure_video_encoder.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working.proto

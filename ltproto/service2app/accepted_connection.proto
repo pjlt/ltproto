@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "ltproto/common/video_codec_type.proto";
+
+package ltproto.service2app;
+
+message AcceptedConnection
+{
+    int64 device_id = 1;
+    bool enable_gamepad = 2;
+    bool enable_keyboard = 3;
+    bool enable_mouse = 4;
+    bool gpu_encode = 5;
+    bool gpu_decode = 6;
+    bool p2p = 7;
+    ltproto.common.VideoCodecType video_codec = 8;
+}
