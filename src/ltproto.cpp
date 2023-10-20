@@ -313,19 +313,12 @@ std::optional<Packet> Packet::create(const Message& payload, bool need_xor)
 {
     need_xor = false; // XXX
     Packet pkt{};
-    pkt.header.magic = kMagicV1;
-    pkt.header.xor_key = 0;
+    pkt.header.version = kVersion2;
     pkt.header.checksum = 0;
     pkt.header.payload_size = static_cast<uint32_t>(payload.msg->ByteSizeLong()) + 4;
     pkt.payload = std::shared_ptr<uint8_t>(new uint8_t[pkt.header.payload_size]);
     *(uint32_t*)pkt.payload.get() = payload.type;
     if (payload.msg->SerializeToArray(pkt.payload.get() + 4, pkt.header.payload_size - 4)) {
-        if (need_xor) {
-            pkt.header.xor_key = ::rand() % 254 + 1;
-            for (uint32_t i = 0; i < pkt.header.payload_size; i++) {
-                *pkt.payload.get() ^= (uint8_t)pkt.header.xor_key;
-            }
-        }
         return pkt;
     }
     else {
@@ -337,17 +330,10 @@ std::optional<Packet> Packet::create(const std::shared_ptr<uint8_t>& data, uint3
 {
     need_xor = false; // XXX
     Packet pkt{};
-    pkt.header.magic = kMagicV1;
-    pkt.header.xor_key = 0;
+    pkt.header.version = kVersion2;
     pkt.header.checksum = 0;
     pkt.header.payload_size = len;
     pkt.payload = data;
-    if (need_xor) {
-        pkt.header.xor_key = ::rand() % 254 + 1;
-        for (uint32_t i = 0; i < pkt.header.payload_size; i++) {
-            *pkt.payload.get() ^= (uint8_t)pkt.header.xor_key;
-        }
-    }
     return pkt;
 }
 
@@ -423,17 +409,12 @@ int Parser::parse_net_packet(const uint8_t* data, uint32_t size, ltproto::Packet
     if (size < packet.header.payload_size + ltproto::kMsgHeaderSize) {
         return -1;
     }
-    // 长度是否超出20MB限制
-    if (size > 20 * 1024 * 1024) {
+    // 长度是否超出16MB限制
+    if (size > 16 * 1024 * 1024) {
         return 0;
     }
     std::shared_ptr<uint8_t> payload{ new uint8_t[packet.header.payload_size] };
     ::memcpy(payload.get(), data + ltproto::kMsgHeaderSize, packet.header.payload_size);
-    if (packet.header.xor_key != 0) {
-        for (uint32_t i = 0; i < packet.header.payload_size; i++) {
-            *(payload.get() + i) ^= packet.header.xor_key;
-        }
-    }
     packet.payload = payload;
     return static_cast<int>(packet.header.payload_size + ltproto::kMsgHeaderSize);
 }

@@ -76,20 +76,19 @@ namespace ltproto
         class StopWorking;
     }
 
-    constexpr uint32_t kMagicV1 = 0x950414;
+    constexpr uint8_t kVersion2 = 2;
 
 #pragma pack(push, 1)
     struct PacketHeader
     {
-        uint32_t magic : 24;
-        uint32_t xor_key : 8;
-        uint32_t payload_size;
+        uint32_t version : 8;
+        uint32_t payload_size : 24;
         uint32_t checksum;
     };
 #pragma pack(pop)
 
     constexpr uint32_t kMsgHeaderSize = sizeof(PacketHeader);
-    static_assert(kMsgHeaderSize == 12);
+    static_assert(kMsgHeaderSize == 8);
 
 
     struct Message
