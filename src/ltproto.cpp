@@ -2,6 +2,7 @@
 #include <ltproto/ltproto.h>
 #include <ltproto/common/keep_alive.pb.h>
 #include <ltproto/common/streaming_params.pb.h>
+#include <ltproto/common/keep_alive_ack.pb.h>
 #include <ltproto/server/login_device.pb.h>
 #include <ltproto/server/login_device_ack.pb.h>
 #include <ltproto/server/login_user.pb.h>
@@ -55,6 +56,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<common::KeepAlive>();
     case kStreamingParams:
         return std::make_shared<common::StreamingParams>();
+    case kKeepAliveAck:
+        return std::make_shared<common::KeepAliveAck>();
     case kLoginDevice:
         return std::make_shared<server::LoginDevice>();
     case kLoginDeviceAck:
@@ -147,6 +150,10 @@ uint32_t id(const std::shared_ptr<common::KeepAlive>&)
 uint32_t id(const std::shared_ptr<common::StreamingParams>&)
 {
     return type::kStreamingParams;
+}
+uint32_t id(const std::shared_ptr<common::KeepAliveAck>&)
+{
+    return type::kKeepAliveAck;
 }
 uint32_t id(const std::shared_ptr<server::LoginDevice>&)
 {

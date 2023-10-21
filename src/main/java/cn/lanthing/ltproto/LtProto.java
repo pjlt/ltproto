@@ -2,6 +2,9 @@ package cn.lanthing.ltproto;
 
 public enum LtProto {
 
+    KeepAlive(1, "cn.lanthing.ltproto.common.KeepAliveProto$KeepAlive"),
+    KeepAliveAck(3, "cn.lanthing.ltproto.common.KeepAliveAckProto$KeepAliveAck"),
+
     LoginDevice(1001, "cn.lanthing.ltproto.server.LoginDeviceProto$LoginDevice"),
     LoginDeviceAck(1002, "cn.lanthing.ltproto.server.LoginDeviceAckProto$LoginDeviceAck"),
 

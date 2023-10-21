@@ -1,7 +1,8 @@
 syntax = "proto3";
 
 package ltproto.common;
-
+option java_package = "cn.lanthing.ltproto.common";
+option java_outer_classname = "KeepAliveProto";
 
 message KeepAlive
 {

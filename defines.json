@@ -9,6 +9,11 @@
       "id": 2,
       "message": "StreamingParams",
       "proto": "streaming_params.proto"
+    },
+    {
+      "id": 3,
+      "message": "KeepAliveAck",
+      "proto": "keep_alive_ack.proto"
     }
   ],
   "server": [

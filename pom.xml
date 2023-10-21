@@ -63,8 +63,7 @@
                 <configuration>
                     <protoSourceRoot>${project.basedir}</protoSourceRoot>
                     <includes>
-                        <include>ltproto/common/video_codec_type.proto</include>
-                        <include>ltproto/common/streaming_params.proto</include>
+                        <include>ltproto/common/*.proto</include>
                         <include>ltproto/server/*.proto</include>
                         <include>ltproto/signaling/*.proto</include>
                         <include>ltproto/error_code.proto</include>
