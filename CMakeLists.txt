@@ -33,6 +33,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/error_code.proto
     #common
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/keep_alive.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/keep_alive_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/streaming_params.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/video_codec_type.proto
     #server
