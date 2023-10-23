@@ -2,8 +2,14 @@ syntax = "proto3";
 
 package ltproto.worker2service;
 
+// 这个消息其实不止service发给worker，远端的client也会发给worker
 message ReconfigureVideoEncoder
 {
+    enum Trigger {
+        TurnOnAuto = 0;
+        TurnOffAuto = 1;
+    }
     optional uint32 bitrate_bps = 1;
     optional uint32 fps = 2;
+    optional Trigger trigger = 3;
 }
