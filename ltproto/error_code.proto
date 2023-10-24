@@ -26,9 +26,10 @@ enum ErrorCode
     AllocateDeviceIDNoAvailableID = 30001;
     LoginDeviceInvalidID = 30002;
     LoginDeviceInvalidStatus = 30003;
-    RequestConnectionClientRefuse = 30004;
+    RequestConnectionClientRefuse = 30004; //deprecated, use 13001
     RequestConnectionInvalidStatus = 30005;
     RequestConnectionCreateOrderFailed = 30006;
+    RequestConnectionPeerNotOnline = 30007;
     //50000 ~
     JoinRoomFailed = 50001;
     SignalingPeerNotOnline = 50002;
