@@ -35,6 +35,8 @@
 #include <ltproto/client2worker/start_transmission.pb.h>
 #include <ltproto/client2worker/start_transmission_ack.pb.h>
 #include <ltproto/client2worker/stop_transmission.pb.h>
+#include <ltproto/client2worker/switch_mouse_mode.pb.h>
+#include <ltproto/client2worker/cursor_info.pb.h>
 #include <ltproto/service2app/confirm_connection.pb.h>
 #include <ltproto/service2app/confirm_connection_ack.pb.h>
 #include <ltproto/service2app/accepted_connection.pb.h>
@@ -120,6 +122,10 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<client2worker::StartTransmissionAck>();
     case kStopTransmission:
         return std::make_shared<client2worker::StopTransmission>();
+    case kSwitchMouseMode:
+        return std::make_shared<client2worker::SwitchMouseMode>();
+    case kCursorInfo:
+        return std::make_shared<client2worker::CursorInfo>();
     case kConfirmConnection:
         return std::make_shared<service2app::ConfirmConnection>();
     case kConfirmConnectionAck:
@@ -276,6 +282,14 @@ uint32_t id(const std::shared_ptr<client2worker::StartTransmissionAck>&)
 uint32_t id(const std::shared_ptr<client2worker::StopTransmission>&)
 {
     return type::kStopTransmission;
+}
+uint32_t id(const std::shared_ptr<client2worker::SwitchMouseMode>&)
+{
+    return type::kSwitchMouseMode;
+}
+uint32_t id(const std::shared_ptr<client2worker::CursorInfo>&)
+{
+    return type::kCursorInfo;
 }
 uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&)
 {

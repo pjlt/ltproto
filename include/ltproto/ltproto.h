@@ -61,6 +61,8 @@ namespace ltproto
         class StartTransmission;
         class StartTransmissionAck;
         class StopTransmission;
+        class SwitchMouseMode;
+        class CursorInfo;
     }
     namespace service2app
     {
@@ -145,6 +147,8 @@ namespace ltproto
         constexpr uint32_t kStartTransmission = 5012;
         constexpr uint32_t kStartTransmissionAck = 5013;
         constexpr uint32_t kStopTransmission = 5014;
+        constexpr uint32_t kSwitchMouseMode = 5015;
+        constexpr uint32_t kCursorInfo = 5016;
         constexpr uint32_t kConfirmConnection = 6001;
         constexpr uint32_t kConfirmConnectionAck = 6002;
         constexpr uint32_t kAcceptedConnection = 6003;
@@ -193,6 +197,8 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<client2worker::StartTransmission>&);
     uint32_t id(const std::shared_ptr<client2worker::StartTransmissionAck>&);
     uint32_t id(const std::shared_ptr<client2worker::StopTransmission>&);
+    uint32_t id(const std::shared_ptr<client2worker::SwitchMouseMode>&);
+    uint32_t id(const std::shared_ptr<client2worker::CursorInfo>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnectionAck>&);
     uint32_t id(const std::shared_ptr<service2app::AcceptedConnection>&);

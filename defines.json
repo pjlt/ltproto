@@ -173,6 +173,16 @@
       "id": 5014,
       "message": "StopTransmission",
       "proto": "stop_transmission.proto"
+    },
+    {
+      "id": 5015,
+      "message": "SwitchMouseMode",
+      "proto": "switch_mouse_mode.proto"
+    },
+    {
+      "id": 5016,
+      "message": "CursorInfo",
+      "proto": "cursor_info.proto"
     }
   ],
   "service2app": [

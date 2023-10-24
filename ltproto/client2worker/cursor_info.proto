@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ltproto.client2worker;
+
+message CursorInfo
+{
+	enum PresetCursor
+	{
+		Arrow = 0;
+	}
+	enum CursorDataType
+	{
+		Icon = 0;
+		Bitmap = 1;
+	}
+	optional PresetCursor preset = 1;
+	int32 w = 2;
+	int32 h = 3;
+	int32 x = 4;
+	int32 y = 5;
+	int32 hot_x = 6;
+	int32 hot_y = 7;
+	optional CursorDataType type = 8;
+	bytes data = 9;
+	bytes mask = 10;
+}

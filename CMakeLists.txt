@@ -71,6 +71,8 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame_ack1.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/video_frame_ack2.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/switch_mouse_mode.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/cursor_info.proto
     #service2app
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection_ack.proto
