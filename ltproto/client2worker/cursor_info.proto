@@ -7,6 +7,16 @@ message CursorInfo
 	enum PresetCursor
 	{
 		Arrow = 0;
+		Ibeam = 1;
+		Wait = 2;
+		Cross = 3;
+		SizeNwse = 4;
+		SizeNesw = 5;
+		SizeWe = 6;
+		SizeNs = 7;
+		SizeAll = 9;
+		No = 10;
+		Hand = 11;
 	}
 	enum CursorDataType
 	{
