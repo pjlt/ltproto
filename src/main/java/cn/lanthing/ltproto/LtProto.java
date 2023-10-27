@@ -26,6 +26,8 @@ public enum LtProto {
 
     CloseConnection(1011, "cn.lanthing.ltproto.server.CloseConnectionProto$CloseConnection"),
 
+    NewVersion(1012, "cn.lanthing.ltproto.server.NewVersionProto$NewVersion"),
+
     SignalingMessage(2001, "cn.lanthing.ltproto.signaling.SignalingMessageProto$SignalingMessage"),
 
     SignalingMessageAck(2002, "cn.lanthing.ltproto.signaling.SignalingMessageAckProto$SignalingMessageAck"),
