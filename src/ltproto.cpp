@@ -16,6 +16,7 @@
 #include <ltproto/server/open_connection.pb.h>
 #include <ltproto/server/open_connection_ack.pb.h>
 #include <ltproto/server/close_connection.pb.h>
+#include <ltproto/server/new_version.pb.h>
 #include <ltproto/signaling/signaling_message.pb.h>
 #include <ltproto/signaling/signaling_message_ack.pb.h>
 #include <ltproto/signaling/join_room.pb.h>
@@ -84,6 +85,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<server::OpenConnectionAck>();
     case kCloseConnection:
         return std::make_shared<server::CloseConnection>();
+    case kNewVersion:
+        return std::make_shared<server::NewVersion>();
     case kSignalingMessage:
         return std::make_shared<signaling::SignalingMessage>();
     case kSignalingMessageAck:
@@ -206,6 +209,10 @@ uint32_t id(const std::shared_ptr<server::OpenConnectionAck>&)
 uint32_t id(const std::shared_ptr<server::CloseConnection>&)
 {
     return type::kCloseConnection;
+}
+uint32_t id(const std::shared_ptr<server::NewVersion>&)
+{
+    return type::kNewVersion;
 }
 uint32_t id(const std::shared_ptr<signaling::SignalingMessage>&)
 {

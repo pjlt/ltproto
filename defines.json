@@ -71,6 +71,11 @@
       "id": 1011,
       "message": "CloseConnection",
       "proto": "close_connection.proto"
+    },
+    {
+      "id": 1012,
+      "message": "NewVersion",
+      "proto": "new_version.proto"
     }
   ],
   "signaling": [

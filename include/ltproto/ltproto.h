@@ -30,6 +30,7 @@ namespace ltproto
         class OpenConnection;
         class OpenConnectionAck;
         class CloseConnection;
+        class NewVersion;
     }
     namespace signaling
     {
@@ -128,6 +129,7 @@ namespace ltproto
         constexpr uint32_t kOpenConnection = 1009;
         constexpr uint32_t kOpenConnectionAck = 1010;
         constexpr uint32_t kCloseConnection = 1011;
+        constexpr uint32_t kNewVersion = 1012;
         constexpr uint32_t kSignalingMessage = 2001;
         constexpr uint32_t kSignalingMessageAck = 2002;
         constexpr uint32_t kJoinRoom = 2003;
@@ -178,6 +180,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<server::OpenConnection>&);
     uint32_t id(const std::shared_ptr<server::OpenConnectionAck>&);
     uint32_t id(const std::shared_ptr<server::CloseConnection>&);
+    uint32_t id(const std::shared_ptr<server::NewVersion>&);
     uint32_t id(const std::shared_ptr<signaling::SignalingMessage>&);
     uint32_t id(const std::shared_ptr<signaling::SignalingMessageAck>&);
     uint32_t id(const std::shared_ptr<signaling::JoinRoom>&);

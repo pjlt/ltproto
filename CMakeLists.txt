@@ -49,6 +49,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/open_connection_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/request_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/request_connection_ack.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/new_version.proto
     #signaling
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/join_room.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/join_room_ack.proto

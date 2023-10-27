@@ -7,6 +7,9 @@ option java_outer_classname = "LoginDeviceProto";
 message LoginDevice
 {
 	int64 device_id = 1;
-	string session_id = 2;
+	string cookie = 2;
 	bool allow_control = 3;
+	int32 version_major = 4;
+	int32 version_minor = 5;
+	int32 version_patch = 6;
 }
