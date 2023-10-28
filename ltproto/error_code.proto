@@ -30,6 +30,7 @@ enum ErrorCode
     RequestConnectionInvalidStatus = 30005;
     RequestConnectionCreateOrderFailed = 30006;
     RequestConnectionPeerNotOnline = 30007;
+    LoginDeviceInvalidCookie = 30008;
     //50000 ~
     JoinRoomFailed = 50001;
     SignalingPeerNotOnline = 50002;

@@ -10,5 +10,8 @@ option java_outer_classname = "LoginDeviceAckProto";
 message LoginDeviceAck
 {
     ltproto.ErrorCode err_code = 1;
+    // deprecated session_id
     string session_id = 2;
+    int64 new_device_id = 3;
+    string new_cookie = 4;
 }
