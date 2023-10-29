@@ -10,4 +10,5 @@ message AllocateDeviceIDAck
 {
 	ltproto.ErrorCode err_code = 1;
 	int64 device_id = 2;
+	string cookie = 3;
 }
