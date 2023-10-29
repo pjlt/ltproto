@@ -73,6 +73,7 @@ namespace ltproto
         class DisconnectedConnection;
         class ConnectionStatus;
         class OperateConnection;
+        class ServiceStatus;
     }
     namespace worker2service
     {
@@ -157,6 +158,7 @@ namespace ltproto
         constexpr uint32_t kDisconnectedConnection = 6004;
         constexpr uint32_t kConnectionStatus = 6005;
         constexpr uint32_t kOperateConnection = 6006;
+        constexpr uint32_t kServiceStatus = 6007;
         constexpr uint32_t kReconfigureVideoEncoder = 7001;
         constexpr uint32_t kStartWorking = 7002;
         constexpr uint32_t kStartWorkingAck = 7003;
@@ -208,6 +210,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<service2app::DisconnectedConnection>&);
     uint32_t id(const std::shared_ptr<service2app::ConnectionStatus>&);
     uint32_t id(const std::shared_ptr<service2app::OperateConnection>&);
+    uint32_t id(const std::shared_ptr<service2app::ServiceStatus>&);
     uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorking>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&);

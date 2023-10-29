@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "ltproto/error_code.proto";
+
+package ltproto.service2app;
+
+message ServiceStatus
+{
+    ltproto.ErrorCode status = 1;
+}

@@ -220,6 +220,11 @@
       "id": 6006,
       "message": "OperateConnection",
       "proto": "operate_connection.proto"
+    },
+    {
+      "id": 6007,
+      "message": "ServiceStatus",
+      "proto": "service_status.proto"
     }
   ],
   "worker2service": [

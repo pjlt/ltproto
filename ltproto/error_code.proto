@@ -34,5 +34,7 @@ enum ErrorCode
     //50000 ~
     JoinRoomFailed = 50001;
     SignalingPeerNotOnline = 50002;
+    //60000 ~
+    ServiceStatusDisconnectedFromServer = 60001;
 }
 

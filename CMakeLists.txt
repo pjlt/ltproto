@@ -81,6 +81,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/disconnected_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/connection_status.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/operate_connection.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/service_status.proto
     #worker2service
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/reconfigure_video_encoder.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working.proto
