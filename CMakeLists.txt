@@ -55,6 +55,8 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/join_room_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/signaling_message.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/signaling/signaling_message_ack.proto
+    #client2app
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2app/client_status.proto
     #client2service
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2service/time_sync.proto
     #client2worker

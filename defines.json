@@ -100,7 +100,13 @@
       "proto": "join_room_ack.proto"
     }
   ],
-  "client2app": [],
+  "client2app": [
+    {
+      "id": 3001,
+      "message": "ClientStatus",
+      "proto": "client_status.proto"
+    }
+  ],
   "client2service": [
     {
       "id": 4001,

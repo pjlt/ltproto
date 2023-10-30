@@ -21,6 +21,7 @@
 #include <ltproto/signaling/signaling_message_ack.pb.h>
 #include <ltproto/signaling/join_room.pb.h>
 #include <ltproto/signaling/join_room_ack.pb.h>
+#include <ltproto/client2app/client_status.pb.h>
 #include <ltproto/client2service/time_sync.pb.h>
 #include <ltproto/client2worker/audio_data.pb.h>
 #include <ltproto/client2worker/controller_added_removed.pb.h>
@@ -96,6 +97,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<signaling::JoinRoom>();
     case kJoinRoomAck:
         return std::make_shared<signaling::JoinRoomAck>();
+    case kClientStatus:
+        return std::make_shared<client2app::ClientStatus>();
     case kTimeSync:
         return std::make_shared<client2service::TimeSync>();
     case kAudioData:
@@ -232,6 +235,10 @@ uint32_t id(const std::shared_ptr<signaling::JoinRoom>&)
 uint32_t id(const std::shared_ptr<signaling::JoinRoomAck>&)
 {
     return type::kJoinRoomAck;
+}
+uint32_t id(const std::shared_ptr<client2app::ClientStatus>&)
+{
+    return type::kClientStatus;
 }
 uint32_t id(const std::shared_ptr<client2service::TimeSync>&)
 {

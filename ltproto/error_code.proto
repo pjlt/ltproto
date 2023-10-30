@@ -37,5 +37,8 @@ enum ErrorCode
     SignalingPeerNotOnline = 50002;
     //60000 ~
     ServiceStatusDisconnectedFromServer = 60001;
+    //70000 ~
+    ClientStatusConnectTimeout = 70001;
+    ClientStatusKeepAliveTimeout = 70002;
 }
 

@@ -41,6 +41,7 @@ namespace ltproto
     }
     namespace client2app
     {
+        class ClientStatus;
     }
     namespace client2service
     {
@@ -135,6 +136,7 @@ namespace ltproto
         constexpr uint32_t kSignalingMessageAck = 2002;
         constexpr uint32_t kJoinRoom = 2003;
         constexpr uint32_t kJoinRoomAck = 2004;
+        constexpr uint32_t kClientStatus = 3001;
         constexpr uint32_t kTimeSync = 4001;
         constexpr uint32_t kAudioData = 5001;
         constexpr uint32_t kControllerAddedRemoved = 5002;
@@ -187,6 +189,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<signaling::SignalingMessageAck>&);
     uint32_t id(const std::shared_ptr<signaling::JoinRoom>&);
     uint32_t id(const std::shared_ptr<signaling::JoinRoomAck>&);
+    uint32_t id(const std::shared_ptr<client2app::ClientStatus>&);
     uint32_t id(const std::shared_ptr<client2service::TimeSync>&);
     uint32_t id(const std::shared_ptr<client2worker::AudioData>&);
     uint32_t id(const std::shared_ptr<client2worker::ControllerAddedRemoved>&);
