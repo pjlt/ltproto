@@ -20,7 +20,7 @@ function(lt_generate_protobuf_cpp SRCS HDRS)
     endforeach()
     add_custom_command(
       OUTPUT ${_SRCS} ${_HDRS}
-      COMMAND ${PROTOC_PATH}
+      COMMAND ${CMAKE_COMMAND} -E env LD_LIBRARY_PATH=${LT_ROOT_DIR}/third_party/prebuilt/protobuf/linux/lib ${Protobuf_PROTOC_EXECUTABLE}
       ARGS --cpp_out=lite:${CMAKE_CURRENT_BINARY_DIR} --proto_path=${CMAKE_CURRENT_SOURCE_DIR} ${ARGN}
       DEPENDS ${ARGN}
     )
@@ -105,12 +105,23 @@ if(GENERATE_LTPROTO)
     )
 endif()
 
-add_library(${PROJECT_NAME} STATIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
-    ${GENERATED_PROTO_CC}
-    ${GENERATED_PROTO_H}
-)
+if (LT_WINDOWS)
+    add_library(${PROJECT_NAME} STATIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
+        ${GENERATED_PROTO_CC}
+        ${GENERATED_PROTO_H}
+    )
+else()
+    add_library(${PROJECT_NAME} SHARED
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
+        ${GENERATED_PROTO_CC}
+        ${GENERATED_PROTO_H}
+    )
+endif()
+
+
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
