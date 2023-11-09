@@ -4,3 +4,4 @@
 *.pb.go
 /target
 .vscode
+/build

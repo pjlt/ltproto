@@ -1,0 +1,99 @@
+plugins {
+    id 'com.android.library'
+    id 'com.google.protobuf' version("0.9.4")
+}
+
+android {
+    namespace "cn.lanthing.ltproto"
+
+    compileSdk 33
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            proto {
+                srcDir '.'
+                exclude '**/*.proto'
+                include 'ltproto/**/*.proto'
+            }
+            java {
+                srcDir 'build/generated/source/proto/debug/main/java'
+            }
+        }
+    }
+    protobuf {
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.22.2'
+        }
+        generateProtoTasks {
+            all().configureEach { task ->
+                task.builtins {
+                    java {
+                        option "lite"
+                    }
+                }
+            }
+        }
+    }
+    //谷歌官方protobuf插件有bug，导致要写下面一坨。Github issue上好几个相同的问题，一直没修。
+    afterEvaluate {
+        tasks.forEach {task ->
+            if (task.name.contains("generateDebugProto")) {
+                task.dependsOn("packageDebugResources")
+                task.dependsOn("packageDebugAssets")
+                task.dependsOn("generateDebugResValues")
+                task.dependsOn("processDebugManifest")
+                task.dependsOn("writeDebugAarMetadata")
+                task.dependsOn("generateDebugRFile")
+                task.dependsOn("processDebugJavaRes")
+                task.dependsOn("extractIncludeDebugProto")
+                task.dependsOn("extractDeepLinksDebug")
+                task.dependsOn("javaPreCompileDebug")
+                task.dependsOn("mergeDebugJniLibFolders")
+                task.dependsOn("copyDebugJniLibsProjectOnly")
+            }
+            if (task.name.contains("processDebugJavaRes")) {
+                task.dependsOn("extractIncludeDebugProto")
+                task.dependsOn("packageDebugResources")
+                task.dependsOn("generateDebugResValues")
+                task.dependsOn("processDebugManifest")
+                task.dependsOn("compileDebugLibraryResources")
+                task.dependsOn("mergeDebugShaders")
+                task.dependsOn("packageDebugAssets")
+                task.dependsOn("mergeDebugJniLibFolders")
+                task.dependsOn("copyDebugJniLibsProjectOnly")
+            }
+            if (task.name.contains("generateReleaseProto")) {
+                task.dependsOn("packageReleaseResources")
+                task.dependsOn("packageReleaseAssets")
+                task.dependsOn("generateReleaseResValues")
+                task.dependsOn("processReleaseManifest")
+                task.dependsOn("writeReleaseAarMetadata")
+                task.dependsOn("generateReleaseRFile")
+                task.dependsOn("processReleaseJavaRes")
+                task.dependsOn("extractIncludeReleaseProto")
+                task.dependsOn("extractDeepLinksRelease")
+                task.dependsOn("javaPreCompileRelease")
+                task.dependsOn("mergeReleaseJniLibFolders")
+                task.dependsOn("copyReleaseJniLibsProjectOnly")
+            }
+            if (task.name.contains("processReleaseJavaRes")) {
+                task.dependsOn("extractIncludeReleaseProto")
+                task.dependsOn("packageReleaseResources")
+                task.dependsOn("generateReleaseResValues")
+                task.dependsOn("processReleaseManifest")
+                task.dependsOn("compileReleaseLibraryResources")
+                task.dependsOn("mergeReleaseShaders")
+                task.dependsOn("packageReleaseAssets")
+                task.dependsOn("mergeReleaseJniLibFolders")
+                task.dependsOn("copyReleaseJniLibsProjectOnly")
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation "com.google.protobuf:protobuf-java:3.22.2"
+}
