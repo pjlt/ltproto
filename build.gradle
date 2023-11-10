@@ -15,8 +15,7 @@ android {
         main {
             proto {
                 srcDir '.'
-                exclude '**/*.proto'
-                include 'ltproto/**/*.proto'
+                exclude 'build'
             }
             java {
                 srcDir 'build/generated/source/proto/debug/main/java'
@@ -31,7 +30,6 @@ android {
             all().configureEach { task ->
                 task.builtins {
                     java {
-                        option "lite"
                     }
                 }
             }

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package ltproto.worker2service;
 
-// 这个消息其实不止service发给worker，远端的client也会发给worker
+// 杩欎釜娑堟伅鍏跺疄涓嶆service鍙戠粰worker锛岃繙绔殑client涔熶細鍙戠粰worker
 message ReconfigureVideoEncoder
 {
     enum Trigger {
