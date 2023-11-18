@@ -52,6 +52,7 @@ android {
                 task.dependsOn("javaPreCompileDebug")
                 task.dependsOn("mergeDebugJniLibFolders")
                 task.dependsOn("copyDebugJniLibsProjectOnly")
+                task.dependsOn("copyDebugJniLibsProjectAndLocalJars")
             }
             if (task.name.contains("generateReleaseProto")) {
                 task.dependsOn("packageReleaseResources")
@@ -67,6 +68,7 @@ android {
                 task.dependsOn("javaPreCompileRelease")
                 task.dependsOn("mergeReleaseJniLibFolders")
                 task.dependsOn("copyReleaseJniLibsProjectOnly")
+                task.dependsOn("copyReleaseJniLibsProjectAndLocalJars")
             }
         }
     }
