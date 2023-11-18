@@ -53,6 +53,10 @@ android {
                 task.dependsOn("mergeDebugJniLibFolders")
                 task.dependsOn("copyDebugJniLibsProjectOnly")
                 task.dependsOn("copyDebugJniLibsProjectAndLocalJars")
+                task.dependsOn("extractDeepLinksForAarDebug")
+                task.dependsOn("prepareDebugArtProfile")
+                task.dependsOn("prepareLintJarForPublish")
+                task.dependsOn("mergeDebugJavaResource")
             }
             if (task.name.contains("generateReleaseProto")) {
                 task.dependsOn("packageReleaseResources")
@@ -69,6 +73,10 @@ android {
                 task.dependsOn("mergeReleaseJniLibFolders")
                 task.dependsOn("copyReleaseJniLibsProjectOnly")
                 task.dependsOn("copyReleaseJniLibsProjectAndLocalJars")
+                task.dependsOn("extractDeepLinksForAarRelease")
+                task.dependsOn("prepareReleaseArtProfile")
+                task.dependsOn("prepareLintJarForPublish")
+                task.dependsOn("mergeReleaseJavaResource")
             }
         }
     }
