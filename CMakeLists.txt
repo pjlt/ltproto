@@ -3,9 +3,16 @@ project(ltproto)
 
 option(GENERATE_LTPROTO OFF)
 
-
-set(PROTOC_PATH protobuf::protoc)
-#set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/protoc.exe)
+message(VERBOSE "LT_ANDROID=${LT_ANDROID}")
+if (LT_WINDOWS OR LT_LINUX)
+    set(PROTOC_PATH ${Protobuf_PROTOC_EXECUTABLE})
+elseif (LT_ANDROID} AND WIN32) # 在Windows上开发安卓
+    set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc/bin/protoc.exe)
+elseif (LT_ANDROID AND UNIX)
+    set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc/bin/protoc)
+else()
+    message(VERBOSE "Unsupported platform")
+endif()
 
 
 function(lt_generate_protobuf_cpp SRCS HDRS)
@@ -18,12 +25,22 @@ function(lt_generate_protobuf_cpp SRCS HDRS)
         list(APPEND _SRCS ${cc_file})
         list(APPEND _HDRS ${h_file})
     endforeach()
-    add_custom_command(
-      OUTPUT ${_SRCS} ${_HDRS}
-      COMMAND ${CMAKE_COMMAND} -E env LD_LIBRARY_PATH=${LT_ROOT_DIR}/third_party/prebuilt/protobuf/linux/lib ${Protobuf_PROTOC_EXECUTABLE}
-      ARGS --cpp_out=lite:${CMAKE_CURRENT_BINARY_DIR} --proto_path=${CMAKE_CURRENT_SOURCE_DIR} ${ARGN}
-      DEPENDS ${ARGN}
-    )
+    if (LT_LINUX)
+        add_custom_command(
+                OUTPUT ${_SRCS} ${_HDRS}
+                # Linux上目前编译的动态库，需要指定LD_LIBRARY_PATH。考虑将protoc统一成下载官方binary，而不是自己编译
+                COMMAND ${CMAKE_COMMAND} -E env LD_LIBRARY_PATH=${LT_ROOT_DIR}/third_party/prebuilt/protobuf/linux/lib ${PROTOC_PATH}
+                ARGS --cpp_out=lite:${CMAKE_CURRENT_BINARY_DIR} --proto_path=${CMAKE_CURRENT_SOURCE_DIR} ${ARGN}
+                DEPENDS ${ARGN}
+        )
+    else()
+        add_custom_command(
+                OUTPUT ${_SRCS} ${_HDRS}
+                COMMAND ${PROTOC_PATH}
+                ARGS --cpp_out=lite:${CMAKE_CURRENT_BINARY_DIR} --proto_path=${CMAKE_CURRENT_SOURCE_DIR} ${ARGN}
+                DEPENDS ${ARGN}
+        )
+    endif()
     set(${SRCS} ${_SRCS} PARENT_SCOPE)
     set(${HDRS} ${_HDRS} PARENT_SCOPE)
 endfunction()
@@ -105,7 +122,7 @@ if(GENERATE_LTPROTO)
     )
 endif()
 
-if (LT_WINDOWS)
+if (LT_WINDOWS OR LT_ANDROID)
     add_library(${PROJECT_NAME} STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
         ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
