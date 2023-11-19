@@ -17,10 +17,9 @@ android {
                 srcDir '.'
                 exclude 'build'
             }
-            java {
-                srcDir 'build/generated/source/proto/debug/main/java'
-            }
         }
+        debug.java.srcDir 'build/generated/source/proto/debug/main/java'
+        release.java.srcDir 'build/generated/source/proto/release/main/java'
     }
     protobuf {
         protoc {
@@ -77,6 +76,7 @@ android {
                 task.dependsOn("prepareReleaseArtProfile")
                 task.dependsOn("prepareLintJarForPublish")
                 task.dependsOn("mergeReleaseJavaResource")
+                task.dependsOn("writeReleaseLintModelMetadata")
             }
         }
     }
