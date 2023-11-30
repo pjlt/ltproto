@@ -79,6 +79,7 @@ android {
                 task.dependsOn("writeReleaseLintModelMetadata")
                 task.dependsOn("mapReleaseSourceSetPaths")
                 task.dependsOn("mergeReleaseResources")
+                task.dependsOn("verifyReleaseResources")
             }
         }
     }
