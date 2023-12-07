@@ -13,4 +13,5 @@ message NewVersion
 	string url = 5;
 	repeated string features = 6;
 	repeated string bugfix = 7;
+	bool force = 8;
 }
