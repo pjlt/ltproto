@@ -17,6 +17,7 @@ enum ErrorCode
     //10000 ~
     DecodeFailed = 10001;
     RenderFailed = 10002;
+    NoDecodeAbility = 10003;
     WrokerInitVideoFailed = 11001;
     WorkerInitAudioFailed = 11002;
     WorkerInitInputFailed = 11003;
