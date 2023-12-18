@@ -9,4 +9,7 @@ enum VideoCodecType
     UnknownVCT = 0;
     AVC = 1;
     HEVC = 2;
+    AVC_444 = 4;
+    HEVC_444 = 8;
+    AV1 = 16;
 }
