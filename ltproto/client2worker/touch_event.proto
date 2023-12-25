@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package ltproto.client2worker;
+option java_package = "cn.lanthing.ltproto.client2worker";
+option java_outer_classname = "TouchEventProto";
+
+message TouchEvent
+{
+	enum TouchFlag
+	{
+		TouchUp = 0;
+		TouchDown = 1;
+		TouchMove = 3;
+		TouchCancel = 4;
+	}
+	TouchFlag touch_flag = 1;
+	float x = 2;
+	float y = 3;
+	int32 left = 4;
+	int32 right = 5;
+	int32 top = 6;
+	int32 bottom = 7;
+	uint32 orientation = 8;
+	uint32 pointer_id = 9;
+	uint32 pressure = 10;
+}
