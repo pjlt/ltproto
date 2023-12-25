@@ -194,6 +194,11 @@
       "id": 5016,
       "message": "CursorInfo",
       "proto": "cursor_info.proto"
+    },
+    {
+      "id": 5017,
+      "message": "TouchEvent",
+      "proto": "touch_event.proto"
     }
   ],
   "service2app": [

@@ -39,6 +39,7 @@
 #include <ltproto/client2worker/stop_transmission.pb.h>
 #include <ltproto/client2worker/switch_mouse_mode.pb.h>
 #include <ltproto/client2worker/cursor_info.pb.h>
+#include <ltproto/client2worker/touch_event.pb.h>
 #include <ltproto/service2app/confirm_connection.pb.h>
 #include <ltproto/service2app/confirm_connection_ack.pb.h>
 #include <ltproto/service2app/accepted_connection.pb.h>
@@ -133,6 +134,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<client2worker::SwitchMouseMode>();
     case kCursorInfo:
         return std::make_shared<client2worker::CursorInfo>();
+    case kTouchEvent:
+        return std::make_shared<client2worker::TouchEvent>();
     case kConfirmConnection:
         return std::make_shared<service2app::ConfirmConnection>();
     case kConfirmConnectionAck:
@@ -307,6 +310,10 @@ uint32_t id(const std::shared_ptr<client2worker::SwitchMouseMode>&)
 uint32_t id(const std::shared_ptr<client2worker::CursorInfo>&)
 {
     return type::kCursorInfo;
+}
+uint32_t id(const std::shared_ptr<client2worker::TouchEvent>&)
+{
+    return type::kTouchEvent;
 }
 uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&)
 {
