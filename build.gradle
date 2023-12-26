@@ -80,6 +80,7 @@ android {
                 task.dependsOn("mapReleaseSourceSetPaths")
                 task.dependsOn("mergeReleaseResources")
                 task.dependsOn("verifyReleaseResources")
+                task.dependsOn("extractProguardFiles")
             }
         }
     }
