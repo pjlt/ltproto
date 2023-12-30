@@ -94,6 +94,8 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/switch_mouse_mode.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/cursor_info.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/touch_event.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/change_streaming_params.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/client2worker/change_streaming_params_ack.proto
     #service2app
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/confirm_connection_ack.proto

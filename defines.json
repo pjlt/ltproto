@@ -199,6 +199,16 @@
       "id": 5017,
       "message": "TouchEvent",
       "proto": "touch_event.proto"
+    },
+    {
+      "id": 5018,
+      "message": "ChangeStreamingParams",
+      "proto": "change_streaming_params.proto"
+    },
+    {
+      "id": 5019,
+      "message": "ChangeStreamingParamsAck",
+      "proto": "change_streaming_params_ack.proto"
     }
   ],
   "service2app": [

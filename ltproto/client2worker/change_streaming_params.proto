@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "ltproto/common/streaming_params.proto";
+
+package ltproto.client2worker;
+
+message ChangeStreamingParams
+{
+    common.StreamingParams params = 1;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "ltproto/error_code.proto";
+
+package ltproto.client2worker;
+
+message ChangeStreamingParamsAck
+{
+    ltproto.ErrorCode err_code = 1;
+}
