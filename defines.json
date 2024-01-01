@@ -209,6 +209,11 @@
       "id": 5019,
       "message": "ChangeStreamingParamsAck",
       "proto": "change_streaming_params_ack.proto"
+    },
+    {
+      "id": 5020,
+      "message": "SwitchMonitor",
+      "proto": "switch_monitor.proto"
     }
   ],
   "service2app": [

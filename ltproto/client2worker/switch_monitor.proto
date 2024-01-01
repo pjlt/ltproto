@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package ltproto.client2worker;
+
+message SwitchMonitor
+{
+    // 当前只支持'下一个显示器'指令
+}

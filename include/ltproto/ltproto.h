@@ -68,6 +68,7 @@ namespace ltproto
         class TouchEvent;
         class ChangeStreamingParams;
         class ChangeStreamingParamsAck;
+        class SwitchMonitor;
     }
     namespace service2app
     {
@@ -160,6 +161,7 @@ namespace ltproto
         constexpr uint32_t kTouchEvent = 5017;
         constexpr uint32_t kChangeStreamingParams = 5018;
         constexpr uint32_t kChangeStreamingParamsAck = 5019;
+        constexpr uint32_t kSwitchMonitor = 5020;
         constexpr uint32_t kConfirmConnection = 6001;
         constexpr uint32_t kConfirmConnectionAck = 6002;
         constexpr uint32_t kAcceptedConnection = 6003;
@@ -216,6 +218,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<client2worker::TouchEvent>&);
     uint32_t id(const std::shared_ptr<client2worker::ChangeStreamingParams>&);
     uint32_t id(const std::shared_ptr<client2worker::ChangeStreamingParamsAck>&);
+    uint32_t id(const std::shared_ptr<client2worker::SwitchMonitor>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&);
     uint32_t id(const std::shared_ptr<service2app::ConfirmConnectionAck>&);
     uint32_t id(const std::shared_ptr<service2app::AcceptedConnection>&);

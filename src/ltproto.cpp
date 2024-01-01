@@ -42,6 +42,7 @@
 #include <ltproto/client2worker/touch_event.pb.h>
 #include <ltproto/client2worker/change_streaming_params.pb.h>
 #include <ltproto/client2worker/change_streaming_params_ack.pb.h>
+#include <ltproto/client2worker/switch_monitor.pb.h>
 #include <ltproto/service2app/confirm_connection.pb.h>
 #include <ltproto/service2app/confirm_connection_ack.pb.h>
 #include <ltproto/service2app/accepted_connection.pb.h>
@@ -142,6 +143,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<client2worker::ChangeStreamingParams>();
     case kChangeStreamingParamsAck:
         return std::make_shared<client2worker::ChangeStreamingParamsAck>();
+    case kSwitchMonitor:
+        return std::make_shared<client2worker::SwitchMonitor>();
     case kConfirmConnection:
         return std::make_shared<service2app::ConfirmConnection>();
     case kConfirmConnectionAck:
@@ -328,6 +331,10 @@ uint32_t id(const std::shared_ptr<client2worker::ChangeStreamingParams>&)
 uint32_t id(const std::shared_ptr<client2worker::ChangeStreamingParamsAck>&)
 {
     return type::kChangeStreamingParamsAck;
+}
+uint32_t id(const std::shared_ptr<client2worker::SwitchMonitor>&)
+{
+    return type::kSwitchMonitor;
 }
 uint32_t id(const std::shared_ptr<service2app::ConfirmConnection>&)
 {
