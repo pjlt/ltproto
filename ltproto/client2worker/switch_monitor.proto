@@ -4,5 +4,5 @@ package ltproto.client2worker;
 
 message SwitchMonitor
 {
-    // µ±Ç°Ö»Ö§³Ö'ÏÂÒ»¸öÏÔÊ¾Æ÷'Ö¸Áî
+    // å½“å‰åªæ”¯æŒ'ä¸‹ä¸€ä¸ªæ˜¾ç¤ºå™¨'æŒ‡ä»¤
 }
