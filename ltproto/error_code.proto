@@ -22,6 +22,7 @@ enum ErrorCode
     WrokerInitVideoFailed = 11001;
     WorkerInitAudioFailed = 11002;
     WorkerInitInputFailed = 11003;
+    ControlledInitFailed = 11004;
     ServingAnotherClient = 12001;
     UserReject = 13001;
     //30000 ~
