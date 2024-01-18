@@ -23,7 +23,9 @@ enum ErrorCode
     WorkerInitAudioFailed = 11002;
     WorkerInitInputFailed = 11003;
     ControlledInitFailed = 11004;
+    WorkerKeepAliveTimeout = 11005;
     ServingAnotherClient = 12001;
+    TransportInitFailed = 12002;
     UserReject = 13001;
     //30000 ~
     AllocateDeviceIDNoAvailableID = 30001;
