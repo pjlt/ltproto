@@ -14,6 +14,8 @@ enum ErrorCode
     InvalidStatus = 5;
     AppNotOnline = 6;
     AuthFailed = 7;
+    CreateServiceFailed = 8;
+    StartServiceFailed = 9;
     //10000 ~
     DecodeFailed = 10001;
     RenderFailed = 10002;
