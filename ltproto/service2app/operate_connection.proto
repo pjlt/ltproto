@@ -13,6 +13,8 @@ message OperateConnection
         EnableMouse = 4;
         DisableMouse = 5;
         Kick = 6;
+        EnableAudio = 7;
+        DisableAudio = 8;
     }
     repeated Operation operations = 1;
 }

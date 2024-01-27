@@ -14,4 +14,5 @@ message AcceptedConnection
     bool gpu_decode = 6;
     bool p2p = 7;
     ltproto.common.VideoCodecType video_codec = 8;
+    bool enable_audio = 9;
 }
