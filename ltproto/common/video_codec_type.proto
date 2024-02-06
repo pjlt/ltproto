@@ -12,4 +12,5 @@ enum VideoCodecType
     AVC_444 = 4;
     HEVC_444 = 8;
     AV1 = 16;
+    AVC_SOFT = 32;
 }
