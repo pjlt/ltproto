@@ -17,4 +17,6 @@ message RequestConnection
     string access_token = 4;
     int64 request_id = 5;
     string cookie = 6;
+    int64 client_version = 7;
+    int64 required_version = 8;
 }

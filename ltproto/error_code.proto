@@ -16,6 +16,8 @@ enum ErrorCode
     AuthFailed = 7;
     CreateServiceFailed = 8;
     StartServiceFailed = 9;
+    ClientVresionTooLow = 10;
+    HostVersionTooLow = 11;
     //10000 ~
     DecodeFailed = 10001;
     RenderFailed = 10002;

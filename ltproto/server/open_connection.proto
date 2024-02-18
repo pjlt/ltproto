@@ -24,4 +24,6 @@ message OpenConnection
     repeated string relay_servers = 12;
     int64 client_device_id = 13;
     string cookie = 14;
+    int64 client_version = 15;
+    int64 required_version = 16;
 }
