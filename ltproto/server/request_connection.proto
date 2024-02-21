@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "ltproto/common/streaming_params.proto";
 import "ltproto/server/connection_type.proto";
+import "ltproto/common/transport_type.proto";
 
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
@@ -19,4 +20,5 @@ message RequestConnection
     string cookie = 6;
     int64 client_version = 7;
     int64 required_version = 8;
+    ltproto.common.TransportType transport_type = 9;
 }

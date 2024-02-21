@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package ltproto.common;
+option java_package = "cn.lanthing.ltproto.common";
+option java_outer_classname = "TransportTypeProto";
+
+enum TransportType
+{
+    RTC = 0;
+    TCP = 1;
+    RTC2 = 2;
+}

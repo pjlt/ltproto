@@ -1,5 +1,6 @@
 syntax = "proto3";
 
+import "ltproto/common/transport_type.proto";
 import "ltproto/server/connection_type.proto";
 import "ltproto/common/streaming_params.proto";
 
@@ -26,4 +27,5 @@ message OpenConnection
     string cookie = 14;
     int64 client_version = 15;
     int64 required_version = 16;
+    ltproto.common.TransportType transport_type = 17;
 }

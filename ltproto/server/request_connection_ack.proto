@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "ltproto/error_code.proto";
 import "ltproto/common/streaming_params.proto";
+import "ltproto/common/transport_type.proto";
 
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
@@ -22,4 +23,5 @@ message RequestConnectionAck
     string p2p_password = 10;
     repeated string reflex_servers = 11;
     int64 request_id = 12;
+    ltproto.common.TransportType transport_type = 13;
 }

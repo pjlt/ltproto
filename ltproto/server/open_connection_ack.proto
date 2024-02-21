@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "ltproto/error_code.proto";
+import "ltproto/common/transport_type.proto";
 import "ltproto/common/streaming_params.proto";
 
 package ltproto.server;
@@ -12,4 +13,5 @@ message OpenConnectionAck
 {
     ltproto.ErrorCode err_code = 1;
     optional ltproto.common.StreamingParams streaming_params = 2;
+    ltproto.common.TransportType transport_type = 3;
 }

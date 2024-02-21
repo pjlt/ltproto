@@ -53,6 +53,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/keep_alive_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/streaming_params.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/video_codec_type.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/common/transport_type.proto
     #server
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/allocate_device_id.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/server/allocate_device_id_ack.proto
