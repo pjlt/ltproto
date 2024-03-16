@@ -18,6 +18,7 @@ enum ErrorCode
     StartServiceFailed = 9;
     ClientVresionTooLow = 10;
     HostVersionTooLow = 11;
+    AccessCodeInvalid = 12;
     //10000 ~
     DecodeFailed = 10001;
     RenderFailed = 10002;
