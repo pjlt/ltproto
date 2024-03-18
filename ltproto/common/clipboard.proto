@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package ltproto.common;
+option java_package = "cn.lanthing.ltproto.common";
+option java_outer_classname = "Clipboard";
+
+message Clipboard
+{
+	enum ClipboardType {
+		Text = 0;
+	}
+	ClipboardType type = 1;
+	string text = 2;
+}

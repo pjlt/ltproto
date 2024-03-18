@@ -16,6 +16,7 @@ namespace ltproto
         class KeepAlive;
         class StreamingParams;
         class KeepAliveAck;
+        class Clipboard;
     }
     namespace server
     {
@@ -124,6 +125,7 @@ namespace ltproto
         constexpr uint32_t kKeepAlive = 1;
         constexpr uint32_t kStreamingParams = 2;
         constexpr uint32_t kKeepAliveAck = 3;
+        constexpr uint32_t kClipboard = 4;
         constexpr uint32_t kLoginDevice = 1001;
         constexpr uint32_t kLoginDeviceAck = 1002;
         constexpr uint32_t kLoginUser = 1003;
@@ -181,6 +183,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<common::KeepAlive>&);
     uint32_t id(const std::shared_ptr<common::StreamingParams>&);
     uint32_t id(const std::shared_ptr<common::KeepAliveAck>&);
+    uint32_t id(const std::shared_ptr<common::Clipboard>&);
     uint32_t id(const std::shared_ptr<server::LoginDevice>&);
     uint32_t id(const std::shared_ptr<server::LoginDeviceAck>&);
     uint32_t id(const std::shared_ptr<server::LoginUser>&);

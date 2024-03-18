@@ -14,6 +14,11 @@
       "id": 3,
       "message": "KeepAliveAck",
       "proto": "keep_alive_ack.proto"
+    },
+    {
+      "id": 4,
+      "message": "Clipboard",
+      "proto": "clipboard.proto"
     }
   ],
   "server": [
