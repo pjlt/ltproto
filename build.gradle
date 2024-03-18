@@ -76,6 +76,7 @@ android {
                 task.dependsOn("mapDebugAndroidTestSourceSetPaths")
                 task.dependsOn("mergeDebugAndroidTestResources")
                 task.dependsOn("processDebugAndroidTestResources")
+                task.dependsOn("mergeDebugAndroidTestNativeLibs")
             }
             if (task.name.contains("generateReleaseProto")) {
                 task.dependsOn("packageReleaseResources")
