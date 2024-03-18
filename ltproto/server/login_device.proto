@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "ltproto/common/os_type.proto";
+
 package ltproto.server;
 option java_package = "cn.lanthing.ltproto.server";
 option java_outer_classname = "LoginDeviceProto";
@@ -14,4 +16,5 @@ message LoginDevice
 	int32 version_major = 5;
 	int32 version_minor = 6;
 	int32 version_patch = 7;
+	ltproto.common.OSType os_type = 8;
 }
