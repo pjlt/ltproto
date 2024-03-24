@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package ltproto.worker2service;
+
+message NetworkChanged
+{
+	enum NetworkEvent
+	{
+		Unknown = 0;
+		LinkTypeLan = 1;
+		LinkTypeWan = 2;
+		LinkTypeTCP = 3;
+		LinkTypeRelay = 4;
+		DropTooMuch = 5;
+		FileTransportBegin = 6;
+		FileTransportEnd = 7;
+	}
+	NetworkEvent network_event = 1;
+}

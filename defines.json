@@ -278,6 +278,11 @@
       "id": 7004,
       "message": "StopWorking",
       "proto": "stop_working.proto"
+    },
+    {
+      "id": 7005,
+      "message": "NetworkChanged",
+      "proto": "network_changed.proto"
     }
   ]
 }

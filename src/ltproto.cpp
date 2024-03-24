@@ -55,6 +55,7 @@
 #include <ltproto/worker2service/start_working.pb.h>
 #include <ltproto/worker2service/start_working_ack.pb.h>
 #include <ltproto/worker2service/stop_working.pb.h>
+#include <ltproto/worker2service/network_changed.pb.h>
 
 
 namespace ltproto
@@ -170,6 +171,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<worker2service::StartWorkingAck>();
     case kStopWorking:
         return std::make_shared<worker2service::StopWorking>();
+    case kNetworkChanged:
+        return std::make_shared<worker2service::NetworkChanged>();
     default:
         return nullptr;
     }
@@ -386,6 +389,10 @@ uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&)
 uint32_t id(const std::shared_ptr<worker2service::StopWorking>&)
 {
     return type::kStopWorking;
+}
+uint32_t id(const std::shared_ptr<worker2service::NetworkChanged>&)
+{
+    return type::kNetworkChanged;
 }
 
 std::optional<Packet> Packet::create(const Message& payload, bool need_xor)
