@@ -8,7 +8,13 @@ message Clipboard
 {
 	enum ClipboardType {
 		Text = 0;
+		File = 1;
+		// Image = 2;
 	}
 	ClipboardType type = 1;
 	string text = 2;
+	string file_name = 3;
+	int64 file_size = 4;
+	uint32 file_seq = 5;
+	int64 device_id = 6;
 }
