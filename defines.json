@@ -284,5 +284,22 @@
       "message": "NetworkChanged",
       "proto": "network_changed.proto"
     }
+  ],
+  "app": [
+    {
+      "id": 8001,
+      "message": "PullFile",
+      "proto": "pull_file.proto"
+    },
+    {
+      "id": 8002,
+      "message": "FileChunk",
+      "proto": "file_chunk.proto"
+    },
+    {
+      "id": 8003,
+      "message": "FileChunkAck",
+      "proto": "file_chunk_ack.proto"
+    }
   ]
 }

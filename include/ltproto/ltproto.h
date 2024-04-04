@@ -89,6 +89,12 @@ namespace ltproto
         class StopWorking;
         class NetworkChanged;
     }
+    namespace app
+    {
+        class PullFile;
+        class FileChunk;
+        class FileChunkAck;
+    }
 
     constexpr uint8_t kVersion2 = 2;
 
@@ -177,6 +183,9 @@ namespace ltproto
         constexpr uint32_t kStartWorkingAck = 7003;
         constexpr uint32_t kStopWorking = 7004;
         constexpr uint32_t kNetworkChanged = 7005;
+        constexpr uint32_t kPullFile = 8001;
+        constexpr uint32_t kFileChunk = 8002;
+        constexpr uint32_t kFileChunkAck = 8003;
         constexpr uint32_t kLastProtocol = 0xffffffff;
     } // namespace type
 
@@ -236,6 +245,9 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&);
     uint32_t id(const std::shared_ptr<worker2service::StopWorking>&);
     uint32_t id(const std::shared_ptr<worker2service::NetworkChanged>&);
+    uint32_t id(const std::shared_ptr<app::PullFile>&);
+    uint32_t id(const std::shared_ptr<app::FileChunk>&);
+    uint32_t id(const std::shared_ptr<app::FileChunkAck>&);
 
 
     class Parser

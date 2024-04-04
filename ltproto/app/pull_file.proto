@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ltproto.app;
+
+message PullFile
+{
+	int64 request_device_id = 1;
+	int64 response_device_id = 2;
+	uint32 file_seq = 3;
+}

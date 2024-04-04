@@ -114,6 +114,10 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/stop_working.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/network_changed.proto
+    #app
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/app/pull_file.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/app/file_chunk.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/app/file_chunk_ack.proto
 )
 
 lt_generate_protobuf_cpp(GENERATED_PROTO_CC GENERATED_PROTO_H ${LT_PROTOS})
