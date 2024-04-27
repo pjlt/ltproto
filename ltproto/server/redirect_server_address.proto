@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package ltproto.server;
+option java_package = "cn.lanthing.ltproto.server";
+option java_outer_classname = "RedirectServerAddressProto";
+
+message RedirectServerAddress
+{
+	string host = 1;
+	int32 port = 2;
+}

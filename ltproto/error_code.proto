@@ -19,6 +19,7 @@ enum ErrorCode
     ClientVresionTooLow = 10;
     HostVersionTooLow = 11;
     AccessCodeInvalid = 12;
+    TerminalVersionTooLow = 13;
     //10000 ~
     DecodeFailed = 10001;
     RenderFailed = 10002;

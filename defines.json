@@ -81,6 +81,11 @@
       "id": 1012,
       "message": "NewVersion",
       "proto": "new_version.proto"
+    },
+    {
+      "id": 1013,
+      "message": "RedirectServerAddress",
+      "proto": "redirect_server_address.proto"
     }
   ],
   "signaling": [
