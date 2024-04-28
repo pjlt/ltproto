@@ -28,6 +28,8 @@ public enum LtProto {
 
     NewVersion(1012, "cn.lanthing.ltproto.server.NewVersionProto$NewVersion"),
 
+    RedirectServerAddress(1013, "cn.lanthing.ltproto.server.RedirectServerAddressProto$RedirectServerAddress"),
+
     SignalingMessage(2001, "cn.lanthing.ltproto.signaling.SignalingMessageProto$SignalingMessage"),
 
     SignalingMessageAck(2002, "cn.lanthing.ltproto.signaling.SignalingMessageAckProto$SignalingMessageAck"),
