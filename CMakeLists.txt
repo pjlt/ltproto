@@ -4,7 +4,7 @@ project(ltproto)
 option(GENERATE_LTPROTO OFF)
 
 message(VERBOSE "LT_ANDROID=${LT_ANDROID}")
-if (LT_WINDOWS OR LT_LINUX)
+if (LT_WINDOWS OR LT_LINUX OR LT_MAC)
     set(PROTOC_PATH ${Protobuf_PROTOC_EXECUTABLE})
 elseif (LT_ANDROID} AND WIN32) # 在Windows上开发安卓
     set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc/bin/protoc.exe)
