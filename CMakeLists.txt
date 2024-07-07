@@ -135,22 +135,12 @@ if(GENERATE_LTPROTO)
     )
 endif()
 
-if (LT_WINDOWS OR LT_ANDROID)
-    add_library(${PROJECT_NAME} STATIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
-        ${GENERATED_PROTO_CC}
-        ${GENERATED_PROTO_H}
-    )
-else()
-    add_library(${PROJECT_NAME} SHARED
-        ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
-        ${GENERATED_PROTO_CC}
-        ${GENERATED_PROTO_H}
-    )
-endif()
-
+add_library(${PROJECT_NAME} STATIC
+   ${CMAKE_CURRENT_SOURCE_DIR}/include/ltproto/ltproto.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/ltproto.cpp
+    ${GENERATED_PROTO_CC}
+    ${GENERATED_PROTO_H}
+)
 
 
 target_link_libraries(${PROJECT_NAME}
