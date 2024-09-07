@@ -40,4 +40,5 @@ message CursorInfo
 	int32 cursor_w = 12;
 	int32 cursor_h = 13;
 	int32 data_id = 14;
+	int32 pitch = 15;
 }
