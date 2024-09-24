@@ -3,17 +3,14 @@ project(ltproto)
 
 option(GENERATE_LTPROTO OFF)
 
-message(VERBOSE "LT_ANDROID=${LT_ANDROID}")
 if (LT_WINDOWS OR LT_LINUX OR LT_MAC)
     set(PROTOC_PATH ${Protobuf_PROTOC_EXECUTABLE})
-elseif (LT_ANDROID AND WIN32) # 在Windows上开发安卓
+elseif (LT_ANDROID AND CMAKE_HOST_WIN32)
     set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc/bin/protoc.exe)
-elseif (LT_ANDROID AND APPLE)
+elseif (LT_ANDROID AND CMAKE_HOST_APPLE)
     set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc-mac/bin/protoc)
-elseif (LT_ANDROID AND UNIX)
+elseif (LT_ANDROID AND CMAKE_HOST_UNIX)
     set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc/bin/protoc)
-    # fixme
-    set(PROTOC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../third_party/prebuilt/protoc-mac/bin/protoc)
 else()
     message(VERBOSE "Unsupported platform")
 endif()
