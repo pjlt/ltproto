@@ -70,7 +70,9 @@ PACKET_STRUCTURE = '''
 
     struct Packet
     {
-        PacketHeader header;
+        Packet();
+        std::shared_ptr<uint8_t> raw_header;
+        PacketHeader* header;
         std::shared_ptr<uint8_t> payload;
         //头部暂时都是死的
         static std::optional<Packet> create(const Message& payload, bool need_xor);
@@ -118,16 +120,22 @@ NAMESPACE_TYPE_END = '''
 '''
 
 PARSER_IMPLEMENT = '''
+Packet::Packet()
+    : raw_header(new uint8_t[sizeof(PacketHeader)])
+    , header{ reinterpret_cast<PacketHeader*>(raw_header.get()) }
+    , payload(nullptr)
+{
+}
 std::optional<Packet> Packet::create(const Message& payload, bool need_xor)
 {
     need_xor = false; // XXX
     Packet pkt{};
-    pkt.header.version = kVersion2;
-    pkt.header.checksum = 0;
-    pkt.header.payload_size = static_cast<uint32_t>(payload.msg->ByteSizeLong()) + 4;
-    pkt.payload = std::shared_ptr<uint8_t>(new uint8_t[pkt.header.payload_size]);
+    pkt.header->version = kVersion2;
+    pkt.header->checksum = 0;
+    pkt.header->payload_size = static_cast<uint32_t>(payload.msg->ByteSizeLong()) + 4;
+    pkt.payload = std::shared_ptr<uint8_t>(new uint8_t[pkt.header->payload_size]);
     *(uint32_t*)pkt.payload.get() = payload.type;
-    if (payload.msg->SerializeToArray(pkt.payload.get() + 4, pkt.header.payload_size - 4)) {
+    if (payload.msg->SerializeToArray(pkt.payload.get() + 4, pkt.header->payload_size - 4)) {
         return pkt;
     }
     else {
@@ -139,9 +147,9 @@ std::optional<Packet> Packet::create(const std::shared_ptr<uint8_t>& data, uint3
 {
     need_xor = false; // XXX
     Packet pkt{};
-    pkt.header.version = kVersion2;
-    pkt.header.checksum = 0;
-    pkt.header.payload_size = len;
+    pkt.header->version = kVersion2;
+    pkt.header->checksum = 0;
+    pkt.header->payload_size = len;
     pkt.payload = data;
     return pkt;
 }
@@ -213,19 +221,19 @@ int Parser::parse_net_packet(const uint8_t* data, uint32_t size, ltproto::Packet
     if (size < ltproto::kMsgHeaderSize) {
         return -1;
     }
-    packet.header = *reinterpret_cast<const ltproto::PacketHeader*>(data);
+    packet.header = const_cast<ltproto::PacketHeader*>(reinterpret_cast<const ltproto::PacketHeader*>(data));
     // 长度是否足够一个包
-    if (size < packet.header.payload_size + ltproto::kMsgHeaderSize) {
+    if (size < packet.header->payload_size + ltproto::kMsgHeaderSize) {
         return -1;
     }
     // 长度是否超出16MB限制
     if (size > 16 * 1024 * 1024) {
         return 0;
     }
-    std::shared_ptr<uint8_t> payload{ new uint8_t[packet.header.payload_size] };
-    ::memcpy(payload.get(), data + ltproto::kMsgHeaderSize, packet.header.payload_size);
+    std::shared_ptr<uint8_t> payload{ new uint8_t[packet.header->payload_size] };
+    ::memcpy(payload.get(), data + ltproto::kMsgHeaderSize, packet.header->payload_size);
     packet.payload = payload;
-    return static_cast<int>(packet.header.payload_size + ltproto::kMsgHeaderSize);
+    return static_cast<int>(packet.header->payload_size + ltproto::kMsgHeaderSize);
 }
 void Parser::parse_bussiness_messages()
 {
@@ -237,7 +245,7 @@ void Parser::parse_bussiness_messages()
             //unknown msg type
         }
         else {
-            bool success = msg->ParseFromArray(packet.payload.get() + 4, packet.header.payload_size - 4);
+            bool success = msg->ParseFromArray(packet.payload.get() + 4, packet.header->payload_size - 4);
             if (!success) {
                 //error
             }

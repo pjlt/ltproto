@@ -120,7 +120,9 @@ namespace ltproto
 
     struct Packet
     {
-        PacketHeader header;
+        Packet();
+        std::shared_ptr<uint8_t> raw_header;
+        PacketHeader* header;
         std::shared_ptr<uint8_t> payload;
         //头部暂时都是死的
         static std::optional<Packet> create(const Message& payload, bool need_xor);
