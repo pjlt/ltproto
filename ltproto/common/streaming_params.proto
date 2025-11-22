@@ -33,4 +33,6 @@ message StreamingParams
     int32 audio_channels = 10;
     int32 monitor_index = 11;
     int32 rotation = 12;
+    int32 color_matrix = 13;
+    bool full_range = 14;
 }
