@@ -112,6 +112,7 @@ set(LT_PROTOS
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/service2app/service_status.proto
     #worker2service
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/reconfigure_video_encoder.proto
+    ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/worker_bootstrap.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/start_working_ack.proto
     ${CMAKE_CURRENT_SOURCE_DIR}/ltproto/worker2service/stop_working.proto

@@ -53,6 +53,7 @@
 #include <ltproto/service2app/operate_connection.pb.h>
 #include <ltproto/service2app/service_status.pb.h>
 #include <ltproto/worker2service/reconfigure_video_encoder.pb.h>
+#include <ltproto/worker2service/worker_bootstrap.pb.h>
 #include <ltproto/worker2service/start_working.pb.h>
 #include <ltproto/worker2service/start_working_ack.pb.h>
 #include <ltproto/worker2service/stop_working.pb.h>
@@ -171,6 +172,8 @@ std::shared_ptr<google::protobuf::MessageLite> create_by_type(uint32_t _type)
         return std::make_shared<service2app::ServiceStatus>();
     case kReconfigureVideoEncoder:
         return std::make_shared<worker2service::ReconfigureVideoEncoder>();
+    case kWorkerBootstrap:
+        return std::make_shared<worker2service::WorkerBootstrap>();
     case kStartWorking:
         return std::make_shared<worker2service::StartWorking>();
     case kStartWorkingAck:
@@ -393,6 +396,10 @@ uint32_t id(const std::shared_ptr<service2app::ServiceStatus>&)
 uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&)
 {
     return type::kReconfigureVideoEncoder;
+}
+uint32_t id(const std::shared_ptr<worker2service::WorkerBootstrap>&)
+{
+    return type::kWorkerBootstrap;
 }
 uint32_t id(const std::shared_ptr<worker2service::StartWorking>&)
 {

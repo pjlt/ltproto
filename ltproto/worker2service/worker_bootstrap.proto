@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+import "ltproto/common/video_codec_type.proto";
+
+package ltproto.worker2service;
+
+message WorkerBootstrap
+{
+    uint32 version = 1;
+    string pipe_name = 2;
+    uint32 width = 3;
+    uint32 height = 4;
+    uint32 refresh_rate = 5;
+    repeated ltproto.common.VideoCodecType video_codecs = 6;
+    int32 audio_codec = 7;
+    uint32 monitor_index = 8;
+    int32 color_matrix = 9;
+    bool full_range = 10;
+    bool need_negotiate = 11;
+}

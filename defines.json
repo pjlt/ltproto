@@ -288,6 +288,11 @@
       "id": 7005,
       "message": "NetworkChanged",
       "proto": "network_changed.proto"
+    },
+    {
+      "id": 7006,
+      "message": "WorkerBootstrap",
+      "proto": "worker_bootstrap.proto"
     }
   ],
   "app": [

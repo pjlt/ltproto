@@ -85,6 +85,7 @@ namespace ltproto
     namespace worker2service
     {
         class ReconfigureVideoEncoder;
+        class WorkerBootstrap;
         class StartWorking;
         class StartWorkingAck;
         class StopWorking;
@@ -183,6 +184,7 @@ namespace ltproto
         constexpr uint32_t kOperateConnection = 6006;
         constexpr uint32_t kServiceStatus = 6007;
         constexpr uint32_t kReconfigureVideoEncoder = 7001;
+        constexpr uint32_t kWorkerBootstrap = 7006;
         constexpr uint32_t kStartWorking = 7002;
         constexpr uint32_t kStartWorkingAck = 7003;
         constexpr uint32_t kStopWorking = 7004;
@@ -246,6 +248,7 @@ namespace ltproto
     uint32_t id(const std::shared_ptr<service2app::OperateConnection>&);
     uint32_t id(const std::shared_ptr<service2app::ServiceStatus>&);
     uint32_t id(const std::shared_ptr<worker2service::ReconfigureVideoEncoder>&);
+    uint32_t id(const std::shared_ptr<worker2service::WorkerBootstrap>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorking>&);
     uint32_t id(const std::shared_ptr<worker2service::StartWorkingAck>&);
     uint32_t id(const std::shared_ptr<worker2service::StopWorking>&);
