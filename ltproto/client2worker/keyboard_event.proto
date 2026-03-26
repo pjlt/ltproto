@@ -6,4 +6,5 @@ message KeyboardEvent
 {
     int32 key = 1;
     bool down = 2;
+    int64 client_send_timestamp_us = 3;
 }

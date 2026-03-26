@@ -25,4 +25,5 @@ message MouseEvent
     optional int32 delta_x = 4;
     optional int32 delta_y = 5;
     optional int32 delta_z = 6;
+    int64 client_send_timestamp_us = 7;
 }

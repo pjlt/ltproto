@@ -7,4 +7,5 @@ package ltproto.client2worker;
 message StartTransmissionAck
 {
 	ltproto.ErrorCode err_code = 1;
+	string trace_id = 2;
 }

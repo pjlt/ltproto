@@ -28,4 +28,5 @@ message OpenConnection
     int64 client_version = 15;
     int64 required_version = 16;
     ltproto.common.TransportType transport_type = 17;
+    string trace_id = 18;
 }

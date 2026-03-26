@@ -8,4 +8,7 @@ message SendSideStat
 	int32 bwe = 1;
 	int32 nack = 2;
 	float loss_rate = 3;
+	int64 first_input_client_send_timestamp_us = 4;
+	int64 first_input_service_ack_timestamp_us = 5;
+	string trace_id = 6;
 }

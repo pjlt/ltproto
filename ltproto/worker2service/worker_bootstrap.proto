@@ -17,4 +17,5 @@ message WorkerBootstrap
     int32 color_matrix = 9;
     bool full_range = 10;
     bool need_negotiate = 11;
+    string trace_id = 12;
 }
