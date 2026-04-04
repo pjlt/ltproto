@@ -147,6 +147,7 @@ add_library(${PROJECT_NAME} STATIC
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE
+    lt_build_config
         protobuf::libprotobuf-lite
 )
 
